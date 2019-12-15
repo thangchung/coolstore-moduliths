@@ -3,11 +3,11 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using CoolStore.UI.Data;
-using CoolStore.UI.Services;
+using CoolStore.UI.Blazor.Data;
+using CoolStore.UI.Blazor.Services;
 using System;
 
-namespace CoolStore.UI
+namespace CoolStore.UI.Blazor
 {
     public class Startup
     {

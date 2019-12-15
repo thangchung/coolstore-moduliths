@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace CoolStore.UI.Services
+namespace CoolStore.UI.Blazor.Services
 {
     public class CoolStoreService
     {

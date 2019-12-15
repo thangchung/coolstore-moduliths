@@ -32,7 +32,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoolStore.Catalog", "src\Co
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libs", "Libs", "{A69B4DC6-5991-44B2-9E58-16923F5BF9EA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoolStore.UI", "src\CoolStore.UI\CoolStore.UI.csproj", "{0F3B6C28-4B25-4902-AD02-5FD7D71417E6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoolStore.UI.Blazor", "src\CoolStore.UI.Blazor\CoolStore.UI.Blazor.csproj", "{6A66A15B-CA2A-4250-8538-768156C06B5A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -60,10 +60,10 @@ Global
 		{D356D135-E94F-48FF-A18A-B578FF6383AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D356D135-E94F-48FF-A18A-B578FF6383AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D356D135-E94F-48FF-A18A-B578FF6383AA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0F3B6C28-4B25-4902-AD02-5FD7D71417E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0F3B6C28-4B25-4902-AD02-5FD7D71417E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0F3B6C28-4B25-4902-AD02-5FD7D71417E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0F3B6C28-4B25-4902-AD02-5FD7D71417E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6A66A15B-CA2A-4250-8538-768156C06B5A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A66A15B-CA2A-4250-8538-768156C06B5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A66A15B-CA2A-4250-8538-768156C06B5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A66A15B-CA2A-4250-8538-768156C06B5A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

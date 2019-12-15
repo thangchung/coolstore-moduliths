@@ -2,7 +2,7 @@ using System;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace CoolStore.UI.Data
+namespace CoolStore.UI.Blazor.Data
 {
     public class WeatherForecastService
     {

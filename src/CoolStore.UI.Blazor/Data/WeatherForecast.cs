@@ -1,6 +1,6 @@
 using System;
 
-namespace CoolStore.UI.Data
+namespace CoolStore.UI.Blazor.Data
 {
     public class WeatherForecast
     {
