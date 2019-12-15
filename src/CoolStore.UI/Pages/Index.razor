@@ -1,0 +1,51 @@
+﻿@page "/"
+
+@using CoolStore.UI.Services
+@using CoolStore.Protobuf.Catalogs.V1
+@inject CoolStoreService CoolStoreService
+
+<h1>Hello, world!</h1>
+
+Welcome to your new app.
+
+@if (products == null)
+{
+    <p><em>Loading products...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Category</th>
+                <th>Inventory Location</th>
+                <th>Price</th>
+                <th>Image</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var product in products)
+            {
+            <tr>
+                <td>@product.Name</td>
+                <td>@product.CategoryName</td>
+                <td>@product.InventoryLocation</td>
+                <td>@product.Price</td>
+                <td>@product.ImageUrl</td>
+                <td>@product.Description</td>
+            </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private List<CatalogProductDto> products;
+    protected override async Task OnInitializedAsync()
+    {
+        products = await CoolStoreService.GetProducts();
+
+    }
+}

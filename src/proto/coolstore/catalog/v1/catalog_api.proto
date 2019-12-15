@@ -1,0 +1,90 @@
+syntax = "proto3";
+
+package coolstore.catalog.v1;
+
+option csharp_namespace = "CoolStore.Protobuf.Catalogs.V1";
+
+import "catalog.proto";
+import "google/protobuf/empty.proto";
+import "google/protobuf/wrappers.proto";
+import "google/api/annotations.proto";
+
+service Catalog {
+  rpc GetProducts(GetProductsRequest) returns (GetProductsResponse) {
+    option (google.api.http) = {
+      get: "/catalog/api/products/{current_page}/{high_price}"
+    };
+  };
+  rpc GetProductById(GetProductByIdRequest) returns (GetProductByIdResponse) {
+    option (google.api.http) = {
+      get: "/catalog/api/products/{product_id}"
+    };
+  };
+  rpc CreateProduct(CreateProductRequest) returns (CreateProductResponse) {
+    option (google.api.http) = {
+      post: "/catalog/api/products"
+      body: "*"
+    };
+  };
+  rpc UpdateProduct(UpdateProductRequest) returns (UpdateProductResponse) {
+    option (google.api.http) = {
+      put: "/catalog/api/products"
+      body: "*"
+    };
+  };
+  rpc DeleteProduct(DeleteProductRequest) returns (DeleteProductResponse) {
+    option (google.api.http) = {
+      delete: "/catalog/api/products/{product_id}"
+    };
+  };
+}
+
+message GetProductsRequest {
+  google.protobuf.Int32Value current_page = 1;
+  google.protobuf.DoubleValue high_price = 2;
+}
+
+message GetProductsResponse {
+  repeated CatalogProductDto products = 1;
+}
+
+message GetProductByIdRequest {
+  google.protobuf.StringValue product_id = 1;
+}
+
+message GetProductByIdResponse {
+  CatalogProductDto product = 1;
+}
+
+message CreateProductRequest {
+  google.protobuf.StringValue name = 1;
+  string description = 2;
+  google.protobuf.DoubleValue price = 3;
+  google.protobuf.StringValue image_url = 4;
+  google.protobuf.StringValue inventory_id = 5;
+}
+
+message CreateProductResponse {
+  CatalogProductDto product = 1;
+}
+
+message UpdateProductRequest {
+  google.protobuf.StringValue product_id = 1;
+  google.protobuf.StringValue name = 2;
+  google.protobuf.StringValue description = 3;
+  google.protobuf.DoubleValue price = 4;
+  google.protobuf.StringValue image_url = 5;
+  google.protobuf.StringValue inventory_id = 6;
+}
+
+message UpdateProductResponse {
+  CatalogProductDto product = 1;
+}
+
+message DeleteProductRequest {
+  google.protobuf.StringValue product_id = 1;
+}
+
+message DeleteProductResponse {
+  CatalogProductDto product = 1;
+}

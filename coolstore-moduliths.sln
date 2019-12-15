@@ -1,0 +1,81 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29512.175
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FeatherHttp", "src\FeatherHttp\FeatherHttp.csproj", "{C7C6A0C5-B8F2-457D-96D8-C789B1E0445E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoolStore.Api", "src\CoolStore.Api\CoolStore.Api.csproj", "{817910EB-25A5-4DC4-B087-EF2F2118FDD6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "proto", "proto", "{417525CC-9400-4E09-9D46-A419456D8EC1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "__", "__", "{3A2F9617-51BC-4D8D-B9CE-0D11CCAAC821}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		LICENSE = LICENSE
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "catalog", "catalog", "{690DC6A0-F22F-4F4F-95FE-56988CCF0786}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "v1", "v1", "{7A0B912F-5628-4757-843C-A78CFCAFAD92}"
+	ProjectSection(SolutionItems) = preProject
+		src\proto\coolstore\catalog\v1\catalog.proto = src\proto\coolstore\catalog\v1\catalog.proto
+		src\proto\coolstore\catalog\v1\catalog_api.proto = src\proto\coolstore\catalog\v1\catalog_api.proto
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Moduliths.Domain", "src\Moduliths.Domain\Moduliths.Domain.csproj", "{C560D389-6B51-446E-98CD-1EDA28930FDE}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Moduliths.Infra", "src\Moduliths.Infra\Moduliths.Infra.csproj", "{F97E2CD4-6742-474F-8820-0B165138CD73}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoolStore.Catalog", "src\CoolStore.Catalog\CoolStore.Catalog.csproj", "{D356D135-E94F-48FF-A18A-B578FF6383AA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libs", "Libs", "{A69B4DC6-5991-44B2-9E58-16923F5BF9EA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoolStore.UI", "src\CoolStore.UI\CoolStore.UI.csproj", "{0F3B6C28-4B25-4902-AD02-5FD7D71417E6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C7C6A0C5-B8F2-457D-96D8-C789B1E0445E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C7C6A0C5-B8F2-457D-96D8-C789B1E0445E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C7C6A0C5-B8F2-457D-96D8-C789B1E0445E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C7C6A0C5-B8F2-457D-96D8-C789B1E0445E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{817910EB-25A5-4DC4-B087-EF2F2118FDD6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{817910EB-25A5-4DC4-B087-EF2F2118FDD6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{817910EB-25A5-4DC4-B087-EF2F2118FDD6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{817910EB-25A5-4DC4-B087-EF2F2118FDD6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C560D389-6B51-446E-98CD-1EDA28930FDE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C560D389-6B51-446E-98CD-1EDA28930FDE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C560D389-6B51-446E-98CD-1EDA28930FDE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C560D389-6B51-446E-98CD-1EDA28930FDE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F97E2CD4-6742-474F-8820-0B165138CD73}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F97E2CD4-6742-474F-8820-0B165138CD73}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F97E2CD4-6742-474F-8820-0B165138CD73}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F97E2CD4-6742-474F-8820-0B165138CD73}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D356D135-E94F-48FF-A18A-B578FF6383AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D356D135-E94F-48FF-A18A-B578FF6383AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D356D135-E94F-48FF-A18A-B578FF6383AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D356D135-E94F-48FF-A18A-B578FF6383AA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0F3B6C28-4B25-4902-AD02-5FD7D71417E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F3B6C28-4B25-4902-AD02-5FD7D71417E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F3B6C28-4B25-4902-AD02-5FD7D71417E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F3B6C28-4B25-4902-AD02-5FD7D71417E6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C7C6A0C5-B8F2-457D-96D8-C789B1E0445E} = {A69B4DC6-5991-44B2-9E58-16923F5BF9EA}
+		{690DC6A0-F22F-4F4F-95FE-56988CCF0786} = {417525CC-9400-4E09-9D46-A419456D8EC1}
+		{7A0B912F-5628-4757-843C-A78CFCAFAD92} = {690DC6A0-F22F-4F4F-95FE-56988CCF0786}
+		{C560D389-6B51-446E-98CD-1EDA28930FDE} = {A69B4DC6-5991-44B2-9E58-16923F5BF9EA}
+		{F97E2CD4-6742-474F-8820-0B165138CD73} = {A69B4DC6-5991-44B2-9E58-16923F5BF9EA}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {86B192BF-B3E4-4F28-8A6A-0764E535B77A}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Google.Api.Gax.Grpc" Version="2.10.0" />
+    <PackageReference Include="Google.Protobuf" Version="3.11.2" />
+    <PackageReference Include="Grpc.Core" Version="2.25" />
+    <PackageReference Include="Grpc.Tools" Version="2.25.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\FeatherHttp\FeatherHttp.csproj" />
+    <ProjectReference Include="..\Moduliths.Domain\Moduliths.Domain.csproj" />
+    <ProjectReference Include="..\Moduliths.Infra\Moduliths.Infra.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Protobuf Include="..\proto\coolstore\catalog\v1\catalog.proto" Link="protobuf\catalog.proto" AdditionalImportDirs="..\proto\;..\proto\third_party\googleapis\" />
+    <Protobuf Include="..\proto\coolstore\catalog\v1\catalog_api.proto" Link="protobuf\catalog_api.proto" GrpcServices="Server" AdditionalImportDirs="..\proto\;..\proto\third_party\googleapis\" />
+  </ItemGroup>
+
+</Project>
