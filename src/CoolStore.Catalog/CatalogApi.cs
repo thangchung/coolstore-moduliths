@@ -9,8 +9,10 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Moduliths.Domain;
+using System;
 using System.Reflection;
 using System.Threading.Tasks;
+using static Moduliths.Infra.Helpers.DateTimeHelper;
 
 namespace CoolStore.Catalog
 {
@@ -72,4 +74,14 @@ namespace CoolStore.Protobuf.Catalogs.V1
     public partial class CreateProductRequest : IRequest<CreateProductResponse> { }
     public partial class UpdateProductRequest : IRequest<UpdateProductResponse> { }
     public partial class DeleteProductRequest : IRequest<DeleteProductResponse> { }
+
+    public partial class ProductUpdated : IDomainEvent
+    {
+        public DateTime CreatedAt => NewDateTime();
+    }
+
+    public partial class ProductDeleted : IDomainEvent
+    {
+        public DateTime CreatedAt => NewDateTime();
+    }
 }

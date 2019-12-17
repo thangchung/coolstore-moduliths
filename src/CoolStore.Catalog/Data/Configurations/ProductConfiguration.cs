@@ -19,7 +19,6 @@ namespace CoolStore.Catalog.Data.Configurations
                 .UsePropertyAccessMode(PropertyAccessMode.Field)
                 .HasConversion(x => x.Id, id => (ProductId)id);
 
-            //builder.Ignore(x => x.Id);
             builder.Ignore(x => x.DomainEvents);
         }
     }
