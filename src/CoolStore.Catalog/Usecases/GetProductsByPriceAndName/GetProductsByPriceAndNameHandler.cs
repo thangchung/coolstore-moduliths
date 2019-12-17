@@ -40,8 +40,3 @@ namespace CoolStore.Catalog.Usecases.GetProductsByPriceAndName
         }
     }
 }
-
-namespace CoolStore.Protobuf.Catalogs.V1
-{
-    public partial class GetProductsRequest : IRequest<GetProductsResponse> { }
-}

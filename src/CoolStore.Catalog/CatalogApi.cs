@@ -40,45 +40,36 @@ namespace CoolStore.Catalog
 
         public override async Task<GetProductsResponse> GetProducts(GetProductsRequest request, ServerCallContext context)
         {
-            /*var result = new GetProductsResponse();
-
-            result.Products.Add(new CatalogProductDto
-            {
-                Id = Guid.NewGuid().ToString(),
-                CategoryId = Guid.NewGuid().ToString(),
-                CategoryName = "test",
-                Description = "desc",
-                ImageUrl = "http://sample.url",
-                InventoryDescription = "Inv Desc",
-                InventoryId = Guid.NewGuid().ToString(),
-                InventoryLocation = "Inv location",
-                InventoryWebsite = "inv website",
-                Name = "product test",
-                Price = 100
-            });
-
-            return Task.FromResult(result);*/
             return await _mediator.Send(request);
         }
 
-        public override Task<GetProductByIdResponse> GetProductById(GetProductByIdRequest request, ServerCallContext context)
+        public override async Task<GetProductByIdResponse> GetProductById(GetProductByIdRequest request, ServerCallContext context)
         {
-            return base.GetProductById(request, context);
+            return await _mediator.Send(request);
         }
 
-        public override Task<CreateProductResponse> CreateProduct(CreateProductRequest request, ServerCallContext context)
+        public override async Task<CreateProductResponse> CreateProduct(CreateProductRequest request, ServerCallContext context)
         {
-            return base.CreateProduct(request, context);
+            return await _mediator.Send(request);
         }
 
-        public override Task<UpdateProductResponse> UpdateProduct(UpdateProductRequest request, ServerCallContext context)
+        public override async Task<UpdateProductResponse> UpdateProduct(UpdateProductRequest request, ServerCallContext context)
         {
-            return base.UpdateProduct(request, context);
+            return await _mediator.Send(request);
         }
 
-        public override Task<DeleteProductResponse> DeleteProduct(DeleteProductRequest request, ServerCallContext context)
+        public override async Task<DeleteProductResponse> DeleteProduct(DeleteProductRequest request, ServerCallContext context)
         {
-            return base.DeleteProduct(request, context);
+            return await _mediator.Send(request);
         }
     }
+}
+
+namespace CoolStore.Protobuf.Catalogs.V1
+{
+    public partial class GetProductsRequest : IRequest<GetProductsResponse> { }
+    public partial class GetProductByIdRequest : IRequest<GetProductByIdResponse> { }
+    public partial class CreateProductRequest : IRequest<CreateProductResponse> { }
+    public partial class UpdateProductRequest : IRequest<UpdateProductResponse> { }
+    public partial class DeleteProductRequest : IRequest<DeleteProductResponse> { }
 }
