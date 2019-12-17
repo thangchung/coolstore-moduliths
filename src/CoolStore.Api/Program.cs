@@ -9,6 +9,7 @@ using Microsoft.IdentityModel.Logging;
 using Serilog;
 using CoolStore.Catalog;
 using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Configuration;
 
 namespace CoolStore.Api
 {
@@ -23,26 +24,30 @@ namespace CoolStore.Api
 
             var builder = WebApplicationHost.CreateDefaultBuilder(args);
 
-            builder.ConfigureWebHostDefaults(webBuilder => {
-                webBuilder.ConfigureKestrel((ctx, options) =>
+            builder
+                .ConfigureWebHostDefaults(webBuilder =>
                 {
-                    if (ctx.HostingEnvironment.IsDevelopment())
+                    webBuilder.ConfigureKestrel((ctx, options) =>
                     {
-                        IdentityModelEventSource.ShowPII = true;
-                    }
+                        if (ctx.HostingEnvironment.IsDevelopment())
+                        {
+                            IdentityModelEventSource.ShowPII = true;
+                        }
 
-                    options.Limits.MinRequestBodyDataRate = null;
-                    options.Listen(IPAddress.Any, 5002);
-                    options.Listen(IPAddress.Any, 15002, listenOptions =>
-                    {
-                        listenOptions.Protocols = HttpProtocols.Http2;
+                        options.Limits.MinRequestBodyDataRate = null;
+                        options.Listen(IPAddress.Any, 5002);
+                        options.Listen(IPAddress.Any, 15002, listenOptions =>
+                        {
+                            listenOptions.Protocols = HttpProtocols.Http2;
+                        });
                     });
                 });
-            });
 
             builder.UseSerilog();
 
-            builder.Services.AddGrpc();
+            builder.Services
+                .AddCatalogComponents(builder.Configuration.AddJsonFile("appsettings.json", optional: false, reloadOnChange: false).Build())
+                .AddGrpc();
 
             var app = builder.Build();
 

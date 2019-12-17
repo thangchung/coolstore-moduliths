@@ -12,6 +12,12 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -21,8 +27,17 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Protobuf Include="..\proto\coolstore\catalog\v1\catalog.proto" Link="protobuf\catalog.proto" AdditionalImportDirs="..\proto\;..\proto\third_party\googleapis\" />
-    <Protobuf Include="..\proto\coolstore\catalog\v1\catalog_api.proto" Link="protobuf\catalog_api.proto" GrpcServices="Server" AdditionalImportDirs="..\proto\;..\proto\third_party\googleapis\" />
+    <Protobuf Include="..\proto\coolstore\catalog\v1\catalog.proto" Link="_protobuf\catalog.proto" AdditionalImportDirs="..\proto\;..\proto\third_party\googleapis\" />
+    <Protobuf Include="..\proto\coolstore\inventory\v1\inventory.proto" Link="_protobuf\inventory.proto" AdditionalImportDirs="..\proto\;..\proto\third_party\googleapis\" />
+    <Protobuf Include="..\proto\coolstore\catalog\v1\catalog_api.proto" Link="_protobuf\catalog_api.proto" GrpcServices="Server" AdditionalImportDirs="..\proto\;..\proto\third_party\googleapis\" />
+    
+    <Content Include="..\CoolStore.Api\appsettings.json" Link="appsettings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    
+    <Content Include="..\..\products.json" Link="products.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
-
+  
 </Project>

@@ -3,9 +3,13 @@ using System.Collections.Generic;
 
 namespace Moduliths.Domain
 {
-    public abstract class Entity
+    public abstract class EntityBase<TId, TIdentityBase> where TIdentityBase : IdentityBase<TId>
     {
-        public virtual Guid Id { get; private set; }
+        protected IdentityBase<TId> Id;
+        protected EntityBase(IdentityBase<TId> id) => Id = id;
+        protected EntityBase() { }
+        public DateTime Created { get; protected set; }
+        public DateTime? Updated { get; protected set; }
         public HashSet<IDomainEvent> DomainEvents { get; private set; }
 
         public void AddDomainEvent(IDomainEvent eventItem)

@@ -40,8 +40,8 @@ service Catalog {
 }
 
 message GetProductsRequest {
-  google.protobuf.Int32Value current_page = 1;
-  google.protobuf.DoubleValue high_price = 2;
+  int32 current_page = 1;
+  double high_price = 2;
 }
 
 message GetProductsResponse {
@@ -49,7 +49,7 @@ message GetProductsResponse {
 }
 
 message GetProductByIdRequest {
-  google.protobuf.StringValue product_id = 1;
+  string product_id = 1;
 }
 
 message GetProductByIdResponse {
@@ -57,11 +57,11 @@ message GetProductByIdResponse {
 }
 
 message CreateProductRequest {
-  google.protobuf.StringValue name = 1;
+  string name = 1;
   string description = 2;
-  google.protobuf.DoubleValue price = 3;
-  google.protobuf.StringValue image_url = 4;
-  google.protobuf.StringValue inventory_id = 5;
+  double price = 3;
+  string image_url = 4;
+  string inventory_id = 5;
 }
 
 message CreateProductResponse {
@@ -69,12 +69,12 @@ message CreateProductResponse {
 }
 
 message UpdateProductRequest {
-  google.protobuf.StringValue product_id = 1;
-  google.protobuf.StringValue name = 2;
+  string product_id = 1;
+  string name = 2;
   google.protobuf.StringValue description = 3;
-  google.protobuf.DoubleValue price = 4;
-  google.protobuf.StringValue image_url = 5;
-  google.protobuf.StringValue inventory_id = 6;
+  double price = 4;
+  string image_url = 5;
+  string inventory_id = 6;
 }
 
 message UpdateProductResponse {
@@ -82,7 +82,7 @@ message UpdateProductResponse {
 }
 
 message DeleteProductRequest {
-  google.protobuf.StringValue product_id = 1;
+  string product_id = 1;
 }
 
 message DeleteProductResponse {

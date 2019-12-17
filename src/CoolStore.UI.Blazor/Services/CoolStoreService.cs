@@ -22,7 +22,7 @@ namespace CoolStore.UI.Blazor.Services
             var grpcUri = Configuration["CoolStoreApi:GrpcBaseAddress"];
             using var channel = GrpcChannel.ForAddress(grpcUri);
             var client = new Catalog.CatalogClient(channel);
-            var result = await client.GetProductsAsync(new GetProductsRequest { CurrentPage = 1, HighPrice = 100 }, null, DateTime.UtcNow + TimeSpan.FromSeconds(10));
+            var result = await client.GetProductsAsync(new GetProductsRequest { CurrentPage = 1, HighPrice = 10000 }, null, DateTime.UtcNow + TimeSpan.FromSeconds(10));
             return result.Products.ToList();
         }
     }

@@ -1,22 +1,46 @@
-﻿using CoolStore.Protobuf.Catalogs.V1;
+﻿using CoolStore.Catalog.Data;
+using CoolStore.Catalog.Data.Repository;
+using CoolStore.Catalog.Domain;
+using CoolStore.Protobuf.Catalogs.V1;
 using Grpc.Core;
+using MediatR;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using System;
+using Moduliths.Domain;
+using System.Reflection;
 using System.Threading.Tasks;
 
 namespace CoolStore.Catalog
 {
+    public static class Startup
+    {
+        public static IServiceCollection AddCatalogComponents(this IServiceCollection services, IConfiguration config)
+        {
+            services.AddMediatR(Assembly.GetEntryAssembly(), typeof(Startup).Assembly);
+
+            services.AddDbContext<CatalogDbContext>(opt => opt.UseSqlServer(config.GetConnectionString("MainDb")));
+            services.AddSingleton<IUnitOfWork, UnitOfWork>();
+            services.AddScoped<IProductRepository, ProductRepository>();
+
+            return services;
+        }
+    }
+
     public class CatalogApi : Protobuf.Catalogs.V1.Catalog.CatalogBase
     {
+        private readonly IMediator _mediator;
         private readonly ILogger<CatalogApi> _logger;
-        public CatalogApi(ILogger<CatalogApi> logger)
+        public CatalogApi(IMediator mediator, ILogger<CatalogApi> logger)
         {
+            _mediator = mediator;
             _logger = logger;
         }
 
-        public override Task<GetProductsResponse> GetProducts(GetProductsRequest request, ServerCallContext context)
+        public override async Task<GetProductsResponse> GetProducts(GetProductsRequest request, ServerCallContext context)
         {
-            var result = new GetProductsResponse();
+            /*var result = new GetProductsResponse();
 
             result.Products.Add(new CatalogProductDto
             {
@@ -33,7 +57,8 @@ namespace CoolStore.Catalog
                 Price = 100
             });
 
-            return Task.FromResult(result);
+            return Task.FromResult(result);*/
+            return await _mediator.Send(request);
         }
 
         public override Task<GetProductByIdResponse> GetProductById(GetProductByIdRequest request, ServerCallContext context)
