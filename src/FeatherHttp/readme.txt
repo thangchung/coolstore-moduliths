@@ -1,1 +1,0 @@
-﻿Ref at https://github.com/davidfowl/FeatherHttp

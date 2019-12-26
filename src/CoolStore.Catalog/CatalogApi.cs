@@ -23,7 +23,7 @@ namespace CoolStore.Catalog
             services.AddMediatR(Assembly.GetEntryAssembly(), typeof(Startup).Assembly);
 
             services.AddDbContext<CatalogDbContext>(opt => opt.UseSqlServer(config.GetConnectionString("MainDb")));
-            services.AddSingleton<IUnitOfWork, UnitOfWork>();
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped<IProductRepository, ProductRepository>();
 
             return services;

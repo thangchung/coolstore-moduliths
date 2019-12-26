@@ -5,23 +5,24 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="FeatherHttp" Version="0.1.27-alpha.g10a1724f8f" />
     <PackageReference Include="Google.Api.Gax.Grpc" Version="2.10.0" />
     <PackageReference Include="Google.Protobuf" Version="3.11.2" />
     <PackageReference Include="Grpc.Core" Version="2.25" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.0" />
     <PackageReference Include="Grpc.Tools" Version="2.25.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.0" />
+    
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\FeatherHttp\FeatherHttp.csproj" />
     <ProjectReference Include="..\Moduliths.Domain\Moduliths.Domain.csproj" />
     <ProjectReference Include="..\Moduliths.Infra\Moduliths.Infra.csproj" />
   </ItemGroup>
