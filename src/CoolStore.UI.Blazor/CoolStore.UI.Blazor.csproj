@@ -6,8 +6,8 @@
 
   <ItemGroup>
     <PackageReference Include="Google.Api.Gax.Grpc" Version="2.10.0" />
-    <PackageReference Include="Grpc.AspNetCore" Version="2.25.0" />
-    <PackageReference Include="Grpc.Core" Version="2.25" />
+    <PackageReference Include="Grpc.AspNetCore" Version="2.26.0" />
+    <PackageReference Include="Grpc.Core" Version="2.26.0" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="3.1.0" Condition="'$(Configuration)' == 'Debug'" />
   </ItemGroup>
 

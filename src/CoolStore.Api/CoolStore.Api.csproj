@@ -7,7 +7,7 @@
 
   <ItemGroup>
     <PackageReference Include="FeatherHttp" Version="0.1.27-alpha.g10a1724f8f" />
-    <PackageReference Include="Grpc.AspNetCore" Version="2.25.0" />
+    <PackageReference Include="Grpc.AspNetCore" Version="2.26.0" />
     <PackageReference Include="Microsoft.IdentityModel.Logging" Version="5.6.0" />
     <PackageReference Include="Serilog" Version="2.9.1-dev-01154" />
     <PackageReference Include="Serilog.AspNetCore" Version="3.2.0" />

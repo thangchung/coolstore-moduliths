@@ -1,6 +1,7 @@
 ﻿using CoolStore.Catalog.Domain;
 using CoolStore.Protobuf.Catalogs.V1;
 using MediatR;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -18,12 +19,15 @@ namespace CoolStore.Catalog.Usecases.GetProductsByPriceAndName
 
         public async Task<GetProductsResponse> Handle(GetProductsRequest request, CancellationToken cancellationToken)
         {
-            // Todo: refactor and add validation
-            var products = await ProductRepository.FindAllAsync(new ProductWithIdSpecification());
-            var limitedProducts = products
+            var allProducts = new List<Product>();
+            await foreach (var product in ProductRepository.FindAllAsync(new ProductByPriceSpec(request.HighPrice)))
+            {
+                allProducts.Add(product);
+            }
+
+            var limitedProducts = allProducts
                 .Skip(request.CurrentPage - 1)
                 .Take(10)
-                .Where(x => !x.IsDeleted && x.Price <= request.HighPrice)
                 .ToList();
 
             var response = new GetProductsResponse();

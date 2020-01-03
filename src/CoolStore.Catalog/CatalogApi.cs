@@ -2,6 +2,7 @@
 using CoolStore.Catalog.Data.Repository;
 using CoolStore.Catalog.Domain;
 using CoolStore.Protobuf.Catalogs.V1;
+using FluentValidation;
 using Grpc.Core;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
@@ -9,6 +10,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Moduliths.Domain;
+using Moduliths.Infra;
+using Moduliths.Infra.ValidationModel;
 using System;
 using System.Reflection;
 using System.Threading.Tasks;
@@ -21,6 +24,8 @@ namespace CoolStore.Catalog
         public static IServiceCollection AddCatalogComponents(this IServiceCollection services, IConfiguration config)
         {
             services.AddMediatR(Assembly.GetEntryAssembly(), typeof(Startup).Assembly);
+            services.AddTransient(typeof(IPipelineBehavior<,>), typeof(RequestValidationBehavior<,>));
+            services.AddServiceByIntefaceInAssembly<Product>(typeof(IValidator<>));
 
             services.AddDbContext<CatalogDbContext>(opt => opt.UseSqlServer(config.GetConnectionString("MainDb")));
             services.AddScoped<IUnitOfWork, UnitOfWork>();
