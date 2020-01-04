@@ -1,0 +1,39 @@
+﻿@page "/inventory"
+
+@using CoolStore.UI.Blazor.Services
+@inject CoolStoreService CoolStoreService
+
+@if (inventories == null)
+{
+    <p><em>Loading inventory...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Location</th>
+                <th>Website</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var inventory in inventories)
+            {
+                <tr>
+                    <td>@inventory.Location</td>
+                    <td>@inventory.Website</td>
+                    <td>@inventory.Description</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private List<IInventoryDto> inventories;
+    protected override async Task OnInitializedAsync()
+    {
+        inventories = await CoolStoreService.GetInventories();
+    }
+}

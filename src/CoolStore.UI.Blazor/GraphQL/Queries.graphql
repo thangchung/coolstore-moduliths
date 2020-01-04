@@ -1,0 +1,20 @@
+query getProducts($currentPage: Int!, $highPrice: Float!) {
+  products(currentPage: $currentPage, highPrice: $highPrice) {
+    id
+    name
+    categoryName
+    inventoryLocation
+    price
+    imageUrl
+    description
+  }
+}
+
+query getInventories {
+  inventories {
+    id
+    location
+    website
+    description
+  }
+}

@@ -1,0 +1,26 @@
+type CatalogProductDto {
+  categoryId: String
+  categoryName: String
+  description: String
+  id: String
+  imageUrl: String
+  inventoryDescription: String
+  inventoryId: String
+  inventoryLocation: String
+  inventoryWebsite: String
+  name: String
+  price: Float!
+}
+
+type InventoryDto {
+  description: String
+  id: String
+  location: String
+  website: String
+}
+
+type Query {
+  inventories: [InventoryDto]
+  products(currentPage: Int!, highPrice: Float!): [CatalogProductDto]
+}
+

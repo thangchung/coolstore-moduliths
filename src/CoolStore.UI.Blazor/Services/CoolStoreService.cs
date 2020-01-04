@@ -1,8 +1,4 @@
-﻿using CoolStore.Protobuf.Catalogs.V1;
-using Grpc.Net.Client;
-using Microsoft.Extensions.Configuration;
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -10,20 +6,23 @@ namespace CoolStore.UI.Blazor.Services
 {
     public class CoolStoreService
     {
-        public CoolStoreService(IConfiguration configuration)
+        private readonly IGraphQLClient _client;
+
+        public CoolStoreService(IGraphQLClient client)
         {
-            Configuration = configuration;
+            _client = client;
+        }
+        
+        public async Task<List<ICatalogProductDto>> GetProducts()
+        {
+            var result = await _client.GetProductsAsync(1, 5000);
+            return result.Data.Products.ToList();
         }
 
-        public IConfiguration Configuration { get; }
-
-        public async Task<List<CatalogProductDto>> GetProducts()
+        public async Task<List<IInventoryDto>> GetInventories()
         {
-            var grpcUri = Configuration["CoolStoreApi:GrpcBaseAddress"];
-            using var channel = GrpcChannel.ForAddress(grpcUri);
-            var client = new Catalog.CatalogClient(channel);
-            var result = await client.GetProductsAsync(new GetProductsRequest { CurrentPage = 1, HighPrice = 10000 }, null, DateTime.UtcNow + TimeSpan.FromSeconds(10));
-            return result.Products.ToList();
+            var result = await _client.GetInventoriesAsync();
+            return result.Data.Inventories.ToList();
         }
     }
 }

@@ -27,13 +27,22 @@ namespace Moduliths.Infra.Data
             DbContext.Set<T>().AddRange(entities);
         }
 
-        public virtual IAsyncEnumerable<T> FindAllAsync(ISpecification<T> specification)
+        public virtual System.Collections.Generic.IAsyncEnumerable<T> FindAllAsync(ISpecification<T> specification = null)
         {
-            return DbContext.Set<T>()
-                .AsQueryable()
-                .Where(specification.Expression)
-                .AsNoTracking()
-                .AsAsyncEnumerable();
+            var queryable = DbContext.Set<T>().AsQueryable();
+            if (specification == null)
+            {
+                return queryable
+                    .AsNoTracking()
+                    .AsAsyncEnumerable();
+            }
+            else
+            {
+                return queryable
+                    .Where(specification.Expression)
+                    .AsNoTracking()
+                    .AsAsyncEnumerable();
+            }
         }
 
         public Task<T> FindOneAsync(ISpecification<T> specification)

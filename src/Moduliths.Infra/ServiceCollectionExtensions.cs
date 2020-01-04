@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Reflection;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Moduliths.Infra
@@ -15,5 +16,20 @@ namespace Moduliths.Infra
 
             return services;
         }
+
+        public static IServiceCollection AddServiceInAssembly(this IServiceCollection services, params Assembly[] assemblies)
+        {
+            if (assemblies == null) return services;
+
+            services.Scan(s => s
+                .FromAssemblies(assemblies)
+                .AddClasses(c => c.AssignableTo(typeof(IDependency)))
+                .AsSelf()
+                .WithScopedLifetime());
+
+            return services;
+        }
     }
+
+    public interface IDependency { }
 }

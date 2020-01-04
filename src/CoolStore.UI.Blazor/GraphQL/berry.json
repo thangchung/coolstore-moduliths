@@ -1,0 +1,11 @@
+{
+  "ClientName": "GraphQLClient",
+  "Schemas": [
+    {
+      "Name": "GraphQL",
+      "Type": "local",
+      "File": "schema.graphql",
+      "Url": "http://localhost:5002/graphql"
+    }
+  ]
+}

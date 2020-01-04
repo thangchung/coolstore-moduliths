@@ -9,7 +9,7 @@ import "google/protobuf/empty.proto";
 import "google/protobuf/wrappers.proto";
 import "google/api/annotations.proto";
 
-service InventoryApi {
+service Inventory {
   rpc GetInventories(GetInventoriesRequest) returns (GetInventoriesResponse) {};
   rpc GetInventoryAsyncStream(GetInventoryStreamRequest) returns (stream GetInventoryStreamResponse) {};
   rpc GetInventory(GetInventoryRequest) returns (GetInventoryResponse) {};

@@ -1,12 +1,7 @@
 ﻿@page "/"
 
 @using CoolStore.UI.Blazor.Services
-@using CoolStore.Protobuf.Catalogs.V1
 @inject CoolStoreService CoolStoreService
-
-<h1>Hello, world!</h1>
-
-Welcome to your new app.
 
 @if (products == null)
 {
@@ -42,7 +37,7 @@ else
 }
 
 @code {
-    private List<CatalogProductDto> products;
+    private List<ICatalogProductDto> products;
     protected override async Task OnInitializedAsync()
     {
         products = await CoolStoreService.GetProducts();

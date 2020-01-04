@@ -37,7 +37,10 @@ namespace CoolStore.UI.Blazor
             services.AddServerSideBlazor();
             services.AddSingleton<WeatherForecastService>();
 
-            services.AddGrpc();
+            services.AddHttpClient("GraphQLClient",
+                c => c.BaseAddress = new Uri($"{Configuration.GetValue<string>("CoolStoreApi:BaseAddress")}/graphql"));
+            services.AddGraphQLClient();
+
             services.AddSingleton<CoolStoreService>();
         }
 
