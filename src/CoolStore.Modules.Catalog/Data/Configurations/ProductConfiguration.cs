@@ -18,6 +18,12 @@ namespace CoolStore.Modules.Catalog.Data.Configurations
                 .UsePropertyAccessMode(PropertyAccessMode.Field)
                 .HasConversion(x => x.Id, id => (Domain.ProductId)id);
 
+            builder
+                .HasOne(x => x.Category)
+                .WithMany()
+                .HasForeignKey("CategoryId")
+                .IsRequired();
+
             builder.Ignore(x => x.DomainEvents);
         }
     }

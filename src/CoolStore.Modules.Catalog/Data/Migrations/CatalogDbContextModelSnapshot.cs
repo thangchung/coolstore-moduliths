@@ -19,10 +19,59 @@ namespace CoolStore.Modules.Catalog.Data.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("CoolStore.Catalog.Domain.Product", b =>
+            modelBuilder.Entity("CoolStore.Modules.Catalog.Domain.Category", b =>
+                {
+                    b.Property<Guid>("CategoryId")
+                        .HasColumnName("Id")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("Created")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("Updated")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("CategoryId");
+
+                    b.ToTable("Categories","catalog");
+
+                    b.HasData(
+                        new
+                        {
+                            CategoryId = new Guid("80287ef3-987f-4312-a0c6-ccc2239aeea3"),
+                            Created = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "Electronic Gadgets"
+                        },
+                        new
+                        {
+                            CategoryId = new Guid("664690ee-a647-4b12-b87f-af5c511187eb"),
+                            Created = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "Food products"
+                        },
+                        new
+                        {
+                            CategoryId = new Guid("1ebdd04f-a447-42a3-9e65-5697c1dacb09"),
+                            Created = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "Accessories"
+                        },
+                        new
+                        {
+                            CategoryId = new Guid("77666aa8-682c-4047-b075-04839281630a"),
+                            Created = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "Beverage products"
+                        });
+                });
+
+            modelBuilder.Entity("CoolStore.Modules.Catalog.Domain.Product", b =>
                 {
                     b.Property<Guid>("ProductId")
                         .HasColumnName("Id")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("CategoryId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("Created")
@@ -51,12 +100,15 @@ namespace CoolStore.Modules.Catalog.Data.Migrations
 
                     b.HasKey("ProductId");
 
+                    b.HasIndex("CategoryId");
+
                     b.ToTable("Products","catalog");
 
                     b.HasData(
                         new
                         {
                             ProductId = new Guid("ba16da71-c7dd-4eac-9ead-5c2c2244e69f"),
+                            CategoryId = new Guid("80287ef3-987f-4312-a0c6-ccc2239aeea3"),
                             Created = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "IPhone 8",
                             ImageUrl = "https://picsum.photos/1200/900?image=1",
@@ -64,11 +116,12 @@ namespace CoolStore.Modules.Catalog.Data.Migrations
                             IsDeleted = false,
                             Name = "IPhone 8",
                             Price = 900.0,
-                            Updated = new DateTime(2020, 1, 4, 6, 12, 21, 773, DateTimeKind.Utc).AddTicks(3361)
+                            Updated = new DateTime(2020, 1, 9, 12, 29, 44, 193, DateTimeKind.Utc).AddTicks(4182)
                         },
                         new
                         {
                             ProductId = new Guid("13d02035-2286-4055-ad2d-6855a60efbbb"),
+                            CategoryId = new Guid("80287ef3-987f-4312-a0c6-ccc2239aeea3"),
                             Created = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "IPhone X",
                             ImageUrl = "https://picsum.photos/1200/900?image=2",
@@ -76,11 +129,12 @@ namespace CoolStore.Modules.Catalog.Data.Migrations
                             IsDeleted = false,
                             Name = "IPhone X",
                             Price = 1000.0,
-                            Updated = new DateTime(2020, 1, 4, 6, 12, 21, 777, DateTimeKind.Utc).AddTicks(3829)
+                            Updated = new DateTime(2020, 1, 9, 12, 29, 44, 196, DateTimeKind.Utc).AddTicks(3087)
                         },
                         new
                         {
                             ProductId = new Guid("b8f0a771-339f-4602-a862-f7a51afd5b79"),
+                            CategoryId = new Guid("80287ef3-987f-4312-a0c6-ccc2239aeea3"),
                             Created = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "MacBook Pro 2019",
                             ImageUrl = "https://picsum.photos/1200/900?image=3",
@@ -88,11 +142,12 @@ namespace CoolStore.Modules.Catalog.Data.Migrations
                             IsDeleted = false,
                             Name = "MacBook Pro 2019",
                             Price = 4000.0,
-                            Updated = new DateTime(2020, 1, 4, 6, 12, 21, 777, DateTimeKind.Utc).AddTicks(4038)
+                            Updated = new DateTime(2020, 1, 9, 12, 29, 44, 196, DateTimeKind.Utc).AddTicks(3200)
                         },
                         new
                         {
                             ProductId = new Guid("ffd60654-1802-48bd-b4c3-d49831a8ab2c"),
+                            CategoryId = new Guid("80287ef3-987f-4312-a0c6-ccc2239aeea3"),
                             Created = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Asus UX370U i7 8550U (C4217TS)",
                             ImageUrl = "https://picsum.photos/1200/900?image=4",
@@ -100,11 +155,12 @@ namespace CoolStore.Modules.Catalog.Data.Migrations
                             IsDeleted = false,
                             Name = "Asus UX370U i7 8550U (C4217TS)",
                             Price = 500.0,
-                            Updated = new DateTime(2020, 1, 4, 6, 12, 21, 777, DateTimeKind.Utc).AddTicks(4081)
+                            Updated = new DateTime(2020, 1, 9, 12, 29, 44, 196, DateTimeKind.Utc).AddTicks(3244)
                         },
                         new
                         {
                             ProductId = new Guid("a4811778-5070-4d70-8a9c-e6cb70dfcca4"),
+                            CategoryId = new Guid("664690ee-a647-4b12-b87f-af5c511187eb"),
                             Created = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Mastoidectomy revision",
                             ImageUrl = "https://picsum.photos/1200/900?image=5",
@@ -112,11 +168,12 @@ namespace CoolStore.Modules.Catalog.Data.Migrations
                             IsDeleted = false,
                             Name = "Cheese - Camembert",
                             Price = 253.0,
-                            Updated = new DateTime(2020, 1, 4, 6, 12, 21, 777, DateTimeKind.Utc).AddTicks(4111)
+                            Updated = new DateTime(2020, 1, 9, 12, 29, 44, 196, DateTimeKind.Utc).AddTicks(3284)
                         },
                         new
                         {
                             ProductId = new Guid("6a0e6d20-8bcc-450f-bc5c-b8f727083dcd"),
+                            CategoryId = new Guid("664690ee-a647-4b12-b87f-af5c511187eb"),
                             Created = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Fiber-optic bronchoscopy",
                             ImageUrl = "https://picsum.photos/1200/900?image=6",
@@ -124,11 +181,12 @@ namespace CoolStore.Modules.Catalog.Data.Migrations
                             IsDeleted = false,
                             Name = "Bread - White, Unsliced",
                             Price = 2809.0,
-                            Updated = new DateTime(2020, 1, 4, 6, 12, 21, 777, DateTimeKind.Utc).AddTicks(4147)
+                            Updated = new DateTime(2020, 1, 9, 12, 29, 44, 196, DateTimeKind.Utc).AddTicks(3327)
                         },
                         new
                         {
                             ProductId = new Guid("fee1fc67-7469-4490-b418-47f4732de53f"),
+                            CategoryId = new Guid("1ebdd04f-a447-42a3-9e65-5697c1dacb09"),
                             Created = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Open periph nerve biopsy",
                             ImageUrl = "https://picsum.photos/1200/900?image=7",
@@ -136,11 +194,12 @@ namespace CoolStore.Modules.Catalog.Data.Migrations
                             IsDeleted = false,
                             Name = "Bag - Regular Kraft 20 Lb",
                             Price = 2147.0,
-                            Updated = new DateTime(2020, 1, 4, 6, 12, 21, 777, DateTimeKind.Utc).AddTicks(4177)
+                            Updated = new DateTime(2020, 1, 9, 12, 29, 44, 196, DateTimeKind.Utc).AddTicks(3404)
                         },
                         new
                         {
                             ProductId = new Guid("2d2245e4-213a-49de-93d3-79e9439400f5"),
+                            CategoryId = new Guid("664690ee-a647-4b12-b87f-af5c511187eb"),
                             Created = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Tibia/fibula inj op NOS",
                             ImageUrl = "https://picsum.photos/1200/900?image=8",
@@ -148,11 +207,12 @@ namespace CoolStore.Modules.Catalog.Data.Migrations
                             IsDeleted = false,
                             Name = "Wonton Wrappers",
                             Price = 2200.0,
-                            Updated = new DateTime(2020, 1, 4, 6, 12, 21, 777, DateTimeKind.Utc).AddTicks(4249)
+                            Updated = new DateTime(2020, 1, 9, 12, 29, 44, 196, DateTimeKind.Utc).AddTicks(3443)
                         },
                         new
                         {
                             ProductId = new Guid("386b04c6-303a-4840-8a51-d92b1ea2d339"),
+                            CategoryId = new Guid("77666aa8-682c-4047-b075-04839281630a"),
                             Created = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Removal of FB NOS",
                             ImageUrl = "https://picsum.photos/1200/900?image=9",
@@ -160,11 +220,12 @@ namespace CoolStore.Modules.Catalog.Data.Migrations
                             IsDeleted = false,
                             Name = "Hersey Shakes",
                             Price = 2441.0,
-                            Updated = new DateTime(2020, 1, 4, 6, 12, 21, 777, DateTimeKind.Utc).AddTicks(4283)
+                            Updated = new DateTime(2020, 1, 9, 12, 29, 44, 196, DateTimeKind.Utc).AddTicks(3751)
                         },
                         new
                         {
                             ProductId = new Guid("297c5959-4808-4f40-8d6a-4a899505e1f7"),
+                            CategoryId = new Guid("77666aa8-682c-4047-b075-04839281630a"),
                             Created = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Remove bladder stimulat",
                             ImageUrl = "https://picsum.photos/1200/900?image=10",
@@ -172,11 +233,12 @@ namespace CoolStore.Modules.Catalog.Data.Migrations
                             IsDeleted = false,
                             Name = "Oranges - Navel, 72",
                             Price = 1731.0,
-                            Updated = new DateTime(2020, 1, 4, 6, 12, 21, 777, DateTimeKind.Utc).AddTicks(4314)
+                            Updated = new DateTime(2020, 1, 9, 12, 29, 44, 196, DateTimeKind.Utc).AddTicks(3793)
                         },
                         new
                         {
                             ProductId = new Guid("3a0a0a89-9b3a-4046-bf2b-deee64a764d2"),
+                            CategoryId = new Guid("664690ee-a647-4b12-b87f-af5c511187eb"),
                             Created = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Other bone dx proc NEC",
                             ImageUrl = "https://picsum.photos/1200/900?image=11",
@@ -184,11 +246,12 @@ namespace CoolStore.Modules.Catalog.Data.Migrations
                             IsDeleted = false,
                             Name = "Cheese - Swiss",
                             Price = 975.0,
-                            Updated = new DateTime(2020, 1, 4, 6, 12, 21, 777, DateTimeKind.Utc).AddTicks(4344)
+                            Updated = new DateTime(2020, 1, 9, 12, 29, 44, 196, DateTimeKind.Utc).AddTicks(3832)
                         },
                         new
                         {
                             ProductId = new Guid("71c46659-9560-4d6a-ac18-893477ed6662"),
+                            CategoryId = new Guid("664690ee-a647-4b12-b87f-af5c511187eb"),
                             Created = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Oth thorac op thymus NOS",
                             ImageUrl = "https://picsum.photos/1200/900?image=12",
@@ -196,11 +259,12 @@ namespace CoolStore.Modules.Catalog.Data.Migrations
                             IsDeleted = false,
                             Name = "Lettuce - Boston Bib",
                             Price = 3453.0,
-                            Updated = new DateTime(2020, 1, 4, 6, 12, 21, 777, DateTimeKind.Utc).AddTicks(4373)
+                            Updated = new DateTime(2020, 1, 9, 12, 29, 44, 196, DateTimeKind.Utc).AddTicks(3870)
                         },
                         new
                         {
                             ProductId = new Guid("f92bfa6a-2522-4234-a7f1-9004596a4a85"),
+                            CategoryId = new Guid("77666aa8-682c-4047-b075-04839281630a"),
                             Created = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Toxicology-endocrine",
                             ImageUrl = "https://picsum.photos/1200/900?image=13",
@@ -208,11 +272,12 @@ namespace CoolStore.Modules.Catalog.Data.Migrations
                             IsDeleted = false,
                             Name = "Godiva White Chocolate",
                             Price = 2067.0,
-                            Updated = new DateTime(2020, 1, 4, 6, 12, 21, 777, DateTimeKind.Utc).AddTicks(4402)
+                            Updated = new DateTime(2020, 1, 9, 12, 29, 44, 196, DateTimeKind.Utc).AddTicks(3908)
                         },
                         new
                         {
                             ProductId = new Guid("cbe43158-2010-4cb1-a8de-f00da16a7362"),
+                            CategoryId = new Guid("664690ee-a647-4b12-b87f-af5c511187eb"),
                             Created = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Opn/oth part gastrectomy",
                             ImageUrl = "https://picsum.photos/1200/900?image=14",
@@ -220,11 +285,12 @@ namespace CoolStore.Modules.Catalog.Data.Migrations
                             IsDeleted = false,
                             Name = "Ecolab - Balanced Fusion",
                             Price = 1769.0,
-                            Updated = new DateTime(2020, 1, 4, 6, 12, 21, 777, DateTimeKind.Utc).AddTicks(4431)
+                            Updated = new DateTime(2020, 1, 9, 12, 29, 44, 196, DateTimeKind.Utc).AddTicks(3961)
                         },
                         new
                         {
                             ProductId = new Guid("85b9767c-1a09-4c33-8e77-faa25f1d69e1"),
+                            CategoryId = new Guid("664690ee-a647-4b12-b87f-af5c511187eb"),
                             Created = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Tendon excision for grft",
                             ImageUrl = "https://picsum.photos/1200/900?image=15",
@@ -232,11 +298,12 @@ namespace CoolStore.Modules.Catalog.Data.Migrations
                             IsDeleted = false,
                             Name = "Tarragon - Primerba, Paste",
                             Price = 642.0,
-                            Updated = new DateTime(2020, 1, 4, 6, 12, 21, 777, DateTimeKind.Utc).AddTicks(4459)
+                            Updated = new DateTime(2020, 1, 9, 12, 29, 44, 196, DateTimeKind.Utc).AddTicks(3997)
                         },
                         new
                         {
                             ProductId = new Guid("22112bb2-c324-4860-8eb9-9c78853a52a5"),
+                            CategoryId = new Guid("664690ee-a647-4b12-b87f-af5c511187eb"),
                             Created = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Vessel operation NEC",
                             ImageUrl = "https://picsum.photos/1200/900?image=16",
@@ -244,11 +311,12 @@ namespace CoolStore.Modules.Catalog.Data.Migrations
                             IsDeleted = false,
                             Name = "Beef - Tenderloin Tails",
                             Price = 967.0,
-                            Updated = new DateTime(2020, 1, 4, 6, 12, 21, 777, DateTimeKind.Utc).AddTicks(4488)
+                            Updated = new DateTime(2020, 1, 9, 12, 29, 44, 196, DateTimeKind.Utc).AddTicks(4037)
                         },
                         new
                         {
                             ProductId = new Guid("97ad5bf4-d153-41c5-a6e0-6d0bfbbb4f67"),
+                            CategoryId = new Guid("664690ee-a647-4b12-b87f-af5c511187eb"),
                             Created = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Skull plate removal",
                             ImageUrl = "https://picsum.photos/1200/900?image=17",
@@ -256,11 +324,12 @@ namespace CoolStore.Modules.Catalog.Data.Migrations
                             IsDeleted = false,
                             Name = "Oil - Olive",
                             Price = 1124.0,
-                            Updated = new DateTime(2020, 1, 4, 6, 12, 21, 777, DateTimeKind.Utc).AddTicks(4517)
+                            Updated = new DateTime(2020, 1, 9, 12, 29, 44, 196, DateTimeKind.Utc).AddTicks(4102)
                         },
                         new
                         {
                             ProductId = new Guid("cfc5cff8-ab2a-4c70-994d-5ab8ccb7cb0d"),
+                            CategoryId = new Guid("664690ee-a647-4b12-b87f-af5c511187eb"),
                             Created = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Chng hnd mus/ten lng NEC",
                             ImageUrl = "https://picsum.photos/1200/900?image=18",
@@ -268,11 +337,12 @@ namespace CoolStore.Modules.Catalog.Data.Migrations
                             IsDeleted = false,
                             Name = "Crab - Dungeness, Whole, live",
                             Price = 1665.0,
-                            Updated = new DateTime(2020, 1, 4, 6, 12, 21, 777, DateTimeKind.Utc).AddTicks(4548)
+                            Updated = new DateTime(2020, 1, 9, 12, 29, 44, 196, DateTimeKind.Utc).AddTicks(4276)
                         },
                         new
                         {
                             ProductId = new Guid("fac2ccc6-2c3f-4c1e-acbd-5354ba0873fb"),
+                            CategoryId = new Guid("664690ee-a647-4b12-b87f-af5c511187eb"),
                             Created = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Plastic rep ext ear NEC",
                             ImageUrl = "https://picsum.photos/1200/900?image=19",
@@ -280,11 +350,12 @@ namespace CoolStore.Modules.Catalog.Data.Migrations
                             IsDeleted = false,
                             Name = "Pasta - Cappellini, Dry",
                             Price = 3305.0,
-                            Updated = new DateTime(2020, 1, 4, 6, 12, 21, 777, DateTimeKind.Utc).AddTicks(4577)
+                            Updated = new DateTime(2020, 1, 9, 12, 29, 44, 196, DateTimeKind.Utc).AddTicks(4314)
                         },
                         new
                         {
                             ProductId = new Guid("1adbc55a-4354-4205-b96d-c95e2dc806f4"),
+                            CategoryId = new Guid("77666aa8-682c-4047-b075-04839281630a"),
                             Created = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Interat ven retrn transp",
                             ImageUrl = "https://picsum.photos/1200/900?image=20",
@@ -292,11 +363,12 @@ namespace CoolStore.Modules.Catalog.Data.Migrations
                             IsDeleted = false,
                             Name = "Milk - Skim",
                             Price = 3310.0,
-                            Updated = new DateTime(2020, 1, 4, 6, 12, 21, 777, DateTimeKind.Utc).AddTicks(4605)
+                            Updated = new DateTime(2020, 1, 9, 12, 29, 44, 196, DateTimeKind.Utc).AddTicks(4351)
                         },
                         new
                         {
                             ProductId = new Guid("c3770b10-dd0f-4b1c-83aa-d424c175c087"),
+                            CategoryId = new Guid("664690ee-a647-4b12-b87f-af5c511187eb"),
                             Created = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Hepatic lobectomy",
                             ImageUrl = "https://picsum.photos/1200/900?image=20",
@@ -304,11 +376,12 @@ namespace CoolStore.Modules.Catalog.Data.Migrations
                             IsDeleted = false,
                             Name = "Beef - Shank",
                             Price = 3196.0,
-                            Updated = new DateTime(2020, 1, 4, 6, 12, 21, 777, DateTimeKind.Utc).AddTicks(4662)
+                            Updated = new DateTime(2020, 1, 9, 12, 29, 44, 196, DateTimeKind.Utc).AddTicks(4388)
                         },
                         new
                         {
                             ProductId = new Guid("6b8d0110-e3e8-4727-a51e-06f38864e464"),
+                            CategoryId = new Guid("77666aa8-682c-4047-b075-04839281630a"),
                             Created = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Proximal gastrectomy",
                             ImageUrl = "https://picsum.photos/1200/900?image=21",
@@ -316,11 +389,12 @@ namespace CoolStore.Modules.Catalog.Data.Migrations
                             IsDeleted = false,
                             Name = "Ice Cream Bar - Oreo Cone",
                             Price = 2236.0,
-                            Updated = new DateTime(2020, 1, 4, 6, 12, 21, 777, DateTimeKind.Utc).AddTicks(4693)
+                            Updated = new DateTime(2020, 1, 9, 12, 29, 44, 196, DateTimeKind.Utc).AddTicks(4425)
                         },
                         new
                         {
                             ProductId = new Guid("3b69e116-9dd6-400f-96ce-9911f4f6ac8b"),
+                            CategoryId = new Guid("77666aa8-682c-4047-b075-04839281630a"),
                             Created = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Appendiceal ops NEC",
                             ImageUrl = "https://picsum.photos/1200/900?image=22",
@@ -328,11 +402,12 @@ namespace CoolStore.Modules.Catalog.Data.Migrations
                             IsDeleted = false,
                             Name = "Mix - Cocktail Ice Cream",
                             Price = 232.0,
-                            Updated = new DateTime(2020, 1, 4, 6, 12, 21, 777, DateTimeKind.Utc).AddTicks(4722)
+                            Updated = new DateTime(2020, 1, 9, 12, 29, 44, 196, DateTimeKind.Utc).AddTicks(4462)
                         },
                         new
                         {
                             ProductId = new Guid("89b46ea8-b9a6-40e5-8df3-dba1095695f7"),
+                            CategoryId = new Guid("664690ee-a647-4b12-b87f-af5c511187eb"),
                             Created = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Excision of wrist NEC",
                             ImageUrl = "https://picsum.photos/1200/900?image=23",
@@ -340,11 +415,12 @@ namespace CoolStore.Modules.Catalog.Data.Migrations
                             IsDeleted = false,
                             Name = "Mushroom - Lg - Cello",
                             Price = 3318.0,
-                            Updated = new DateTime(2020, 1, 4, 6, 12, 21, 777, DateTimeKind.Utc).AddTicks(4752)
+                            Updated = new DateTime(2020, 1, 9, 12, 29, 44, 196, DateTimeKind.Utc).AddTicks(4498)
                         },
                         new
                         {
                             ProductId = new Guid("e88e07f8-358d-48f7-b17c-8a16458f9c0a"),
+                            CategoryId = new Guid("664690ee-a647-4b12-b87f-af5c511187eb"),
                             Created = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Oth chest cage rep/plast",
                             ImageUrl = "https://picsum.photos/1200/900?image=24",
@@ -352,11 +428,12 @@ namespace CoolStore.Modules.Catalog.Data.Migrations
                             IsDeleted = false,
                             Name = "Lotus Leaves",
                             Price = 1504.0,
-                            Updated = new DateTime(2020, 1, 4, 6, 12, 21, 777, DateTimeKind.Utc).AddTicks(4780)
+                            Updated = new DateTime(2020, 1, 9, 12, 29, 44, 196, DateTimeKind.Utc).AddTicks(4535)
                         },
                         new
                         {
                             ProductId = new Guid("b243a35d-120a-4db3-ad12-7b3fa80e6391"),
+                            CategoryId = new Guid("664690ee-a647-4b12-b87f-af5c511187eb"),
                             Created = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Implt/repl carddefib tot",
                             ImageUrl = "https://picsum.photos/1200/900?image=25",
@@ -364,11 +441,12 @@ namespace CoolStore.Modules.Catalog.Data.Migrations
                             IsDeleted = false,
                             Name = "Soup - Campbells Chili",
                             Price = 3294.0,
-                            Updated = new DateTime(2020, 1, 4, 6, 12, 21, 777, DateTimeKind.Utc).AddTicks(4809)
+                            Updated = new DateTime(2020, 1, 9, 12, 29, 44, 196, DateTimeKind.Utc).AddTicks(4572)
                         },
                         new
                         {
                             ProductId = new Guid("6e3ac253-517d-48e5-96ad-800451f8591c"),
+                            CategoryId = new Guid("664690ee-a647-4b12-b87f-af5c511187eb"),
                             Created = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Wound catheter irrigat",
                             ImageUrl = "https://picsum.photos/1200/900?image=26",
@@ -376,11 +454,12 @@ namespace CoolStore.Modules.Catalog.Data.Migrations
                             IsDeleted = false,
                             Name = "Longos - Penne With Pesto",
                             Price = 3639.0,
-                            Updated = new DateTime(2020, 1, 4, 6, 12, 21, 777, DateTimeKind.Utc).AddTicks(4837)
+                            Updated = new DateTime(2020, 1, 9, 12, 29, 44, 196, DateTimeKind.Utc).AddTicks(4631)
                         },
                         new
                         {
                             ProductId = new Guid("4693520a-2b14-4d90-8b64-541575511382"),
+                            CategoryId = new Guid("664690ee-a647-4b12-b87f-af5c511187eb"),
                             Created = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Abdomen wall repair NEC",
                             ImageUrl = "https://picsum.photos/1200/900?image=27",
@@ -388,8 +467,17 @@ namespace CoolStore.Modules.Catalog.Data.Migrations
                             IsDeleted = false,
                             Name = "Prunes - Pitted",
                             Price = 1191.0,
-                            Updated = new DateTime(2020, 1, 4, 6, 12, 21, 777, DateTimeKind.Utc).AddTicks(4866)
+                            Updated = new DateTime(2020, 1, 9, 12, 29, 44, 196, DateTimeKind.Utc).AddTicks(4671)
                         });
+                });
+
+            modelBuilder.Entity("CoolStore.Modules.Catalog.Domain.Product", b =>
+                {
+                    b.HasOne("CoolStore.Modules.Catalog.Domain.Category", "Category")
+                        .WithMany()
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CoolStore.Modules.Inventory.Data.Migrations
 {
     [DbContext(typeof(InventoryDbContext))]
-    [Migration("20200104061235_InitInventoryDbContext")]
+    [Migration("20200109122958_InitInventoryDbContext")]
     partial class InitInventoryDbContext
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

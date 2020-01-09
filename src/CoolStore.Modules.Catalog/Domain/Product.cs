@@ -15,6 +15,8 @@ namespace CoolStore.Modules.Catalog.Domain
         public string ImageUrl { get; private set; }
         public Guid InventoryId { get; private set; }
         public bool IsDeleted { get; private set; }
+        public CategoryId CategoryId { get; private set; }
+        public Category Category { get; private set; }
 
         private Product() { }
 
@@ -29,6 +31,7 @@ namespace CoolStore.Modules.Catalog.Domain
                 ImageUrl = request.ImageUrl,
                 InventoryId = string.IsNullOrEmpty(request.InventoryId)
                     ? Guid.Empty : request.InventoryId.ConvertTo<Guid>(),
+                CategoryId = (CategoryId)request.CategoryId.ConvertTo<Guid>(),
                 Updated = NewDateTime(),
                 IsDeleted = false
             };

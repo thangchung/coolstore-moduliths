@@ -6,7 +6,6 @@ using Moduliths.Infra.Extensions;
 using Moduliths.Infra.Helpers;
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Text.Json;
 
 namespace CoolStore.Modules.Inventory.Data
@@ -28,16 +27,7 @@ namespace CoolStore.Modules.Inventory.Data
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(InventoryDbContext).Assembly);
 
             //seed data
-            var seedData = Path.GetFullPath("inventories.json", AppContext.BaseDirectory);
-            using StreamReader sr = new StreamReader(seedData);
-            var readData = sr.ReadToEnd();
-            var invModels = JsonSerializer.Deserialize<List<InventoryDto>>(
-                readData,
-                new JsonSerializerOptions
-                {
-                    PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
-                });
-
+            var invModels = "inventories.json".ReadData<List<InventoryDto>>(AppContext.BaseDirectory);
             Console.WriteLine(JsonSerializer.Serialize(invModels));
             foreach (var inv in invModels)
             {

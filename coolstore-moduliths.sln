@@ -6,8 +6,12 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "__", "__", "{3A2F9617-51BC-4D8D-B9CE-0D11CCAAC821}"
 	ProjectSection(SolutionItems) = preProject
 		.gitignore = .gitignore
+		categories.json = categories.json
+		inventories.json = inventories.json
 		LICENSE = LICENSE
+		migrations.ps1 = migrations.ps1
 		nuget.config = nuget.config
+		products.json = products.json
 		README.md = README.md
 	EndProjectSection
 EndProject
@@ -23,7 +27,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoolStore.Modules.Inventory
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoolStore.Modules.Catalog", "src\CoolStore.Modules.Catalog\CoolStore.Modules.Catalog.csproj", "{20514693-548E-4450-AAE0-266FFE2A1A4A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoolStore.Modules.Shared", "src\CoolStore.Modules.Shared\CoolStore.Modules.Shared.csproj", "{9A28766E-3B9F-4E55-9E18-D87A771C957B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoolStore.Modules.Shared", "src\CoolStore.Modules.Shared\CoolStore.Modules.Shared.csproj", "{9A28766E-3B9F-4E55-9E18-D87A771C957B}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoolStore.GraphApi", "src\CoolStore.GraphApi\CoolStore.GraphApi.csproj", "{205D40F8-CFC7-4B6F-BF05-E0EB081374FA}"
 EndProject

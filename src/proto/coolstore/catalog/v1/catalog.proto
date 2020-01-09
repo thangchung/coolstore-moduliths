@@ -21,6 +21,11 @@ message CatalogProductDto {
   string category_name = 11;
 }
 
+message CategoryDto {
+  string id = 1;
+  string name = 2;
+}
+
 message ProductUpdated {
   string product_id = 1;
   string name = 2;
