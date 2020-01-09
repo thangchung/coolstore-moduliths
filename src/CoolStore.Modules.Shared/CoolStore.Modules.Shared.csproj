@@ -18,10 +18,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Protobuf Include="..\proto\coolstore\catalog\v1\catalog.proto" Link="_protobuf\catalog.proto" AdditionalImportDirs="..\proto\;..\proto\third_party\googleapis\" />
-    <Protobuf Include="..\proto\coolstore\catalog\v1\catalog_api.proto" Link="_protobuf\catalog_api.proto" GrpcServices="Server" AdditionalImportDirs="..\proto\;..\proto\third_party\googleapis\" />
-    <Protobuf Include="..\proto\coolstore\inventory\v1\inventory.proto" Link="_protobuf\inventory.proto" AdditionalImportDirs="..\proto\;..\proto\third_party\googleapis\" />
-    <Protobuf Include="..\proto\coolstore\inventory\v1\inventory_api.proto" Link="_protobuf\inventory_api.proto" GrpcServices="Both" AdditionalImportDirs="..\proto\;..\proto\third_party\googleapis\" />
+    <Protobuf Include="..\proto\coolstore\catalog\v1\catalog.proto" Link="_protobuf\catalog.proto" AdditionalImportDirs="..\proto\" />
+    <Protobuf Include="..\proto\coolstore\catalog\v1\catalog_api.proto" Link="_protobuf\catalog_api.proto" GrpcServices="Server" AdditionalImportDirs="..\proto\" />
+    <Protobuf Include="..\proto\coolstore\inventory\v1\inventory.proto" Link="_protobuf\inventory.proto" AdditionalImportDirs="..\proto\" />
+    <Protobuf Include="..\proto\coolstore\inventory\v1\inventory_api.proto" Link="_protobuf\inventory_api.proto" GrpcServices="Both" AdditionalImportDirs="..\proto\" />
   </ItemGroup>
 
 </Project>

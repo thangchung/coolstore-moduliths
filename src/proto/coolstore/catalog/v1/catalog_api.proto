@@ -7,37 +7,6 @@ option csharp_namespace = "CoolStore.Protobuf.Catalogs.V1";
 import "catalog.proto";
 import "google/protobuf/empty.proto";
 import "google/protobuf/wrappers.proto";
-import "google/api/annotations.proto";
-
-service Catalog {
-  rpc GetProducts(GetProductsRequest) returns (GetProductsResponse) {
-    option (google.api.http) = {
-      get: "/catalog/api/products/{current_page}/{high_price}"
-    };
-  };
-  rpc GetProductById(GetProductByIdRequest) returns (GetProductByIdResponse) {
-    option (google.api.http) = {
-      get: "/catalog/api/products/{product_id}"
-    };
-  };
-  rpc CreateProduct(CreateProductRequest) returns (CreateProductResponse) {
-    option (google.api.http) = {
-      post: "/catalog/api/products"
-      body: "*"
-    };
-  };
-  rpc UpdateProduct(UpdateProductRequest) returns (UpdateProductResponse) {
-    option (google.api.http) = {
-      put: "/catalog/api/products"
-      body: "*"
-    };
-  };
-  rpc DeleteProduct(DeleteProductRequest) returns (DeleteProductResponse) {
-    option (google.api.http) = {
-      delete: "/catalog/api/products/{product_id}"
-    };
-  };
-}
 
 message GetProductsRequest {
   int32 current_page = 1;

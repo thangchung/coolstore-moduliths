@@ -19,24 +19,6 @@ namespace CoolStore.Modules.Catalog
             services.AddDbContext<CatalogDbContext>(opt => opt.UseSqlServer(config.GetConnectionString("MainDb")));
             services.AddScoped<IProductRepository, ProductRepository>();
 
-            //[MSA]
-            /*services.AddGrpcClient<Protobuf.Inventories.V1.Inventory.InventoryClient>((s, o) =>
-            {
-                o.Address = GetCurrentAddress(s);
-            });
-
-            static Uri GetCurrentAddress(IServiceProvider serviceProvider)
-            {
-                // Get the address of the current server from the request
-                var context = serviceProvider.GetRequiredService<IHttpContextAccessor>()?.HttpContext;
-                if (context == null)
-                {
-                    throw new InvalidOperationException("Could not get HttpContext.");
-                }
-
-                return new Uri($"{context.Request.Scheme}://{context.Request.Host.Value}");
-            }*/
-
             return services;
         }
 

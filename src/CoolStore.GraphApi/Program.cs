@@ -34,25 +34,6 @@ namespace CoolStore.GraphApi
             var builder = WebApplication.CreateBuilder(args);
             var config = builder.Configuration.AddJsonFile("appsettings.json", optional: false, reloadOnChange: false).Build();
 
-            //[MSA]
-            /*builder.Host.ConfigureWebHostDefaults(webBuilder =>
-            {
-                webBuilder.ConfigureKestrel((ctx, options) =>
-                {
-                    if (ctx.HostingEnvironment.IsDevelopment())
-                    {
-                        IdentityModelEventSource.ShowPII = true;
-                    }
-
-                    options.Limits.MinRequestBodyDataRate = null;
-                    options.Listen(IPAddress.Any, config.GetValue<int>("HttpPort"));
-                    options.Listen(IPAddress.Any, config.GetValue<int>("GrpcPort"), listenOptions =>
-                    {
-                        listenOptions.Protocols = HttpProtocols.Http2;
-                    });
-                });
-            });*/
-
             builder.Host.UseSerilog();
 
             builder.Services
@@ -78,8 +59,6 @@ namespace CoolStore.GraphApi
                     .AddCatalogSchemaBuilder()
                     .AddInventorySchemaBuilder()
                     .Create());
-                //[MSA]
-                //.AddGrpc();
 
             var app = builder.Build();
             app.Listen($"http://localhost:{config.GetValue<int>("HttpPort")}");
@@ -95,10 +74,6 @@ namespace CoolStore.GraphApi
             app.UseRouting();
             app.UseEndpoints(endpoints =>
             {
-                //[MSA]
-                //endpoints.MapGrpcService<CatalogService>();
-                //endpoints.MapGrpcService<InventoryService>();
-
                 endpoints.MapGet("/", async context =>
                 {
                     await context.Response.WriteAsync("Hello World.");
