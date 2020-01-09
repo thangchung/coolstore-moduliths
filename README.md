@@ -12,7 +12,7 @@ $ docker-compose -f docker-compose.yml -f docker-compose.override.yml up
 $ powershell -File migrations.ps1
 ```
 
-Start `CoolStore.Api` and `CoolStore.UI.Blazor`
+Start `CoolStore.Api` and `CoolStore.UI.Blazor` 
 
 ## Generate Code on UI
 
