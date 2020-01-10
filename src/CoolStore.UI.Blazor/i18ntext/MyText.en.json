@@ -1,0 +1,11 @@
+﻿{
+  "HomePage_Name": "Name",
+  "HomePage_Category": "Category",
+  "HomePage_InventoryLocation": "Inventory Location",
+  "HomePage_Price": "Price",
+  "HomePage_Image": "Image",
+  "HomePage_Description": "Description",
+  "InventoryPage_Location": "Location",
+  "InventoryPage_Website": "Website",
+  "InventoryPage_Description": "Description"
+}

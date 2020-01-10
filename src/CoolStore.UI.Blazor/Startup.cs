@@ -6,6 +6,7 @@ using Microsoft.Extensions.Hosting;
 using CoolStore.UI.Blazor.Data;
 using CoolStore.UI.Blazor.Services;
 using System;
+using Toolbelt.Blazor.Extensions.DependencyInjection;
 
 namespace CoolStore.UI.Blazor
 {
@@ -36,6 +37,8 @@ namespace CoolStore.UI.Blazor
 
             services.AddServerSideBlazor();
             services.AddSingleton<WeatherForecastService>();
+
+            services.AddI18nText();
 
             services.AddHttpClient("GraphQLClient",
                 c => c.BaseAddress = new Uri($"{Configuration.GetValue<string>("CoolStoreApi:BaseAddress")}/graphql"));

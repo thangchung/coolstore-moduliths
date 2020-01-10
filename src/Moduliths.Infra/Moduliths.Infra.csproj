@@ -30,8 +30,6 @@
     <PackageReference Include="Scrutor" Version="3.1.0" />
     <PackageReference Include="HotChocolate.AspNetCore" Version="10.3.1" />
     <PackageReference Include="HotChocolate.AspNetCore.Playground" Version="10.3.1" />
-    <PackageReference Include="Grpc.Net.Client" Version="2.26.0" />
-    <PackageReference Include="Grpc.Net.ClientFactory" Version="2.26.0" />
     <PackageReference Include="Serilog" Version="2.9.1-dev-01154" />
     <PackageReference Include="Serilog.AspNetCore" Version="3.2.0" />
     <PackageReference Include="Serilog.Extensions.Logging" Version="3.0.1" />

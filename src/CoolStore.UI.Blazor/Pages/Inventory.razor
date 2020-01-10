@@ -1,7 +1,9 @@
 ﻿@page "/inventory"
 
 @using CoolStore.UI.Blazor.Services
+@using CoolStore.UI.Blazor.I18nText
 @inject CoolStoreService CoolStoreService
+@inject Toolbelt.Blazor.I18nText.I18nText I18nText
 
 @if (inventories == null)
 {
@@ -12,9 +14,9 @@ else
     <table class="table">
         <thead>
             <tr>
-                <th>Location</th>
-                <th>Website</th>
-                <th>Description</th>
+                <th>@Text.InventoryPage_Location</th>
+                <th>@Text.InventoryPage_Website</th>
+                <th>@Text.InventoryPage_Description</th>
             </tr>
         </thead>
         <tbody>
@@ -31,9 +33,11 @@ else
 }
 
 @code {
+    private MyText Text = new MyText();
     private List<IInventoryDto> inventories;
     protected override async Task OnInitializedAsync()
     {
+        Text = await I18nText.GetTextTableAsync<MyText>(this);
         inventories = await CoolStoreService.GetInventories();
     }
 }

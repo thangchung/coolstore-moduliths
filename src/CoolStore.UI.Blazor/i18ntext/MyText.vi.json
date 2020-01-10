@@ -1,0 +1,11 @@
+﻿{
+  "HomePage_Name": "Tên",
+  "HomePage_Category": "Danh mục",
+  "HomePage_InventoryLocation": "Vị trí kho",
+  "HomePage_Price": "Giá",
+  "HomePage_Image": "Hình ảnh",
+  "HomePage_Description": "Mô tả",
+  "InventoryPage_Location": "Vị trí",
+  "InventoryPage_Website": "Website",
+  "InventoryPage_Description": "Mô tả"
+}
