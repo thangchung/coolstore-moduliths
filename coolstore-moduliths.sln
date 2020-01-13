@@ -9,6 +9,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "__", "__", "{3A2F9617-51BC-
 		categories.json = categories.json
 		inventories.json = inventories.json
 		LICENSE = LICENSE
+		localizations.json = localizations.json
 		migrations.ps1 = migrations.ps1
 		nuget.config = nuget.config
 		products.json = products.json
@@ -30,6 +31,8 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoolStore.Modules.Shared", "src\CoolStore.Modules.Shared\CoolStore.Modules.Shared.csproj", "{9A28766E-3B9F-4E55-9E18-D87A771C957B}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoolStore.GraphApi", "src\CoolStore.GraphApi\CoolStore.GraphApi.csproj", "{205D40F8-CFC7-4B6F-BF05-E0EB081374FA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoolStore.Modules.Localization", "src\CoolStore.Modules.Localization\CoolStore.Modules.Localization.csproj", "{AF482F64-3AE1-444B-920A-2A1867C4F96E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -65,6 +68,10 @@ Global
 		{205D40F8-CFC7-4B6F-BF05-E0EB081374FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{205D40F8-CFC7-4B6F-BF05-E0EB081374FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{205D40F8-CFC7-4B6F-BF05-E0EB081374FA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AF482F64-3AE1-444B-920A-2A1867C4F96E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AF482F64-3AE1-444B-920A-2A1867C4F96E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AF482F64-3AE1-444B-920A-2A1867C4F96E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AF482F64-3AE1-444B-920A-2A1867C4F96E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
