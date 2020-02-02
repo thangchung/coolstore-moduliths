@@ -10,7 +10,7 @@ namespace Moduliths.Infra.Extensions
         {
             var seedData = Path.GetFullPath(fileName, rootFolder);
             Console.WriteLine(seedData);
-            using StreamReader sr = new StreamReader(seedData);
+            using var sr = new StreamReader(seedData);
             var readData = sr.ReadToEnd();
             var models = JsonSerializer.Deserialize<TData>(
                 readData,

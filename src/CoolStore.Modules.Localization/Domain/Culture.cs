@@ -8,7 +8,7 @@ namespace CoolStore.Modules.Localization.Domain
     {
         public CultureId CultureId => (CultureId)Id;
         public string Name { get; private set; }
-        public List<Resource> Resources { get; private set; } = new List<Resource>();
+        public List<Resource> Resources { get; } = new List<Resource>();
 
         private Culture() { }
 
@@ -23,8 +23,8 @@ namespace CoolStore.Modules.Localization.Domain
 
         public Culture AddResource(string key, string value)
         {
-            var resouce = new Resource(key, value, this);
-            Resources.Add(resouce);
+            var resource = new Resource(key, value, this);
+            Resources.Add(resource);
             return this;
         }
     }

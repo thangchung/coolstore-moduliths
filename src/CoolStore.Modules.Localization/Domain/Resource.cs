@@ -8,7 +8,7 @@ namespace CoolStore.Modules.Localization.Domain
         public ResourceId ResourceId => (ResourceId)Id;
         public string Key { get; private set; }
         public string Value { get; private set; }
-        public Culture Culture { get; private set; }
+        public Culture Culture { get; }
 
         private Resource() { }
 

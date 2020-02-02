@@ -6,16 +6,16 @@ using System.Threading.Tasks;
 
 namespace Moduliths.Infra.Data
 {
-    public class RepositoryBase<T, TDbContext> : IRepository<T>
+    public abstract class RepositoryBase<T, TDbContext> : IRepository<T>
        where T : class, IAggregateRoot
         where TDbContext : DbContext
     {
-        public RepositoryBase(TDbContext dbContext)
+        protected RepositoryBase(TDbContext dbContext)
         {
             DbContext = dbContext ?? throw CoreException.NullArgument(nameof(dbContext));
         }
 
-        public TDbContext DbContext { get; }
+        protected TDbContext DbContext { get; }
 
         public void Add(T entity)
         {
@@ -27,7 +27,7 @@ namespace Moduliths.Infra.Data
             DbContext.Set<T>().AddRange(entities);
         }
 
-        public virtual System.Collections.Generic.IAsyncEnumerable<T> FindAllAsync(ISpecification<T> specification = null)
+        public virtual IAsyncEnumerable<T> FindAllAsync(ISpecification<T> specification = null)
         {
             var queryable = DbContext.Set<T>().AsQueryable();
             if (specification == null)
@@ -38,7 +38,10 @@ namespace Moduliths.Infra.Data
             }
             else
             {
-                return queryable
+                var queryableWithInclude = specification.Includes
+                    .Aggregate(queryable, (current, include) => current.Include(include));
+
+                return queryableWithInclude
                     .Where(specification.Expression)
                     .AsNoTracking()
                     .AsAsyncEnumerable();

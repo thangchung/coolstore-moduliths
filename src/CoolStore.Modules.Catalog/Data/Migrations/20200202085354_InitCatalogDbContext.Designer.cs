@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CoolStore.Modules.Catalog.Data.Migrations
 {
     [DbContext(typeof(CatalogDbContext))]
-    [Migration("20200109122944_InitCatalogDbContext")]
+    [Migration("20200202085354_InitCatalogDbContext")]
     partial class InitCatalogDbContext
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -118,7 +118,7 @@ namespace CoolStore.Modules.Catalog.Data.Migrations
                             IsDeleted = false,
                             Name = "IPhone 8",
                             Price = 900.0,
-                            Updated = new DateTime(2020, 1, 9, 12, 29, 44, 193, DateTimeKind.Utc).AddTicks(4182)
+                            Updated = new DateTime(2020, 2, 2, 8, 53, 42, 400, DateTimeKind.Utc).AddTicks(6165)
                         },
                         new
                         {
@@ -131,7 +131,7 @@ namespace CoolStore.Modules.Catalog.Data.Migrations
                             IsDeleted = false,
                             Name = "IPhone X",
                             Price = 1000.0,
-                            Updated = new DateTime(2020, 1, 9, 12, 29, 44, 196, DateTimeKind.Utc).AddTicks(3087)
+                            Updated = new DateTime(2020, 2, 2, 8, 53, 42, 403, DateTimeKind.Utc).AddTicks(7342)
                         },
                         new
                         {
@@ -144,7 +144,7 @@ namespace CoolStore.Modules.Catalog.Data.Migrations
                             IsDeleted = false,
                             Name = "MacBook Pro 2019",
                             Price = 4000.0,
-                            Updated = new DateTime(2020, 1, 9, 12, 29, 44, 196, DateTimeKind.Utc).AddTicks(3200)
+                            Updated = new DateTime(2020, 2, 2, 8, 53, 42, 403, DateTimeKind.Utc).AddTicks(7471)
                         },
                         new
                         {
@@ -157,7 +157,7 @@ namespace CoolStore.Modules.Catalog.Data.Migrations
                             IsDeleted = false,
                             Name = "Asus UX370U i7 8550U (C4217TS)",
                             Price = 500.0,
-                            Updated = new DateTime(2020, 1, 9, 12, 29, 44, 196, DateTimeKind.Utc).AddTicks(3244)
+                            Updated = new DateTime(2020, 2, 2, 8, 53, 42, 403, DateTimeKind.Utc).AddTicks(7520)
                         },
                         new
                         {
@@ -170,7 +170,7 @@ namespace CoolStore.Modules.Catalog.Data.Migrations
                             IsDeleted = false,
                             Name = "Cheese - Camembert",
                             Price = 253.0,
-                            Updated = new DateTime(2020, 1, 9, 12, 29, 44, 196, DateTimeKind.Utc).AddTicks(3284)
+                            Updated = new DateTime(2020, 2, 2, 8, 53, 42, 403, DateTimeKind.Utc).AddTicks(7560)
                         },
                         new
                         {
@@ -183,7 +183,7 @@ namespace CoolStore.Modules.Catalog.Data.Migrations
                             IsDeleted = false,
                             Name = "Bread - White, Unsliced",
                             Price = 2809.0,
-                            Updated = new DateTime(2020, 1, 9, 12, 29, 44, 196, DateTimeKind.Utc).AddTicks(3327)
+                            Updated = new DateTime(2020, 2, 2, 8, 53, 42, 403, DateTimeKind.Utc).AddTicks(7606)
                         },
                         new
                         {
@@ -196,7 +196,7 @@ namespace CoolStore.Modules.Catalog.Data.Migrations
                             IsDeleted = false,
                             Name = "Bag - Regular Kraft 20 Lb",
                             Price = 2147.0,
-                            Updated = new DateTime(2020, 1, 9, 12, 29, 44, 196, DateTimeKind.Utc).AddTicks(3404)
+                            Updated = new DateTime(2020, 2, 2, 8, 53, 42, 403, DateTimeKind.Utc).AddTicks(7646)
                         },
                         new
                         {
@@ -209,7 +209,7 @@ namespace CoolStore.Modules.Catalog.Data.Migrations
                             IsDeleted = false,
                             Name = "Wonton Wrappers",
                             Price = 2200.0,
-                            Updated = new DateTime(2020, 1, 9, 12, 29, 44, 196, DateTimeKind.Utc).AddTicks(3443)
+                            Updated = new DateTime(2020, 2, 2, 8, 53, 42, 403, DateTimeKind.Utc).AddTicks(7686)
                         },
                         new
                         {
@@ -222,7 +222,7 @@ namespace CoolStore.Modules.Catalog.Data.Migrations
                             IsDeleted = false,
                             Name = "Hersey Shakes",
                             Price = 2441.0,
-                            Updated = new DateTime(2020, 1, 9, 12, 29, 44, 196, DateTimeKind.Utc).AddTicks(3751)
+                            Updated = new DateTime(2020, 2, 2, 8, 53, 42, 403, DateTimeKind.Utc).AddTicks(7726)
                         },
                         new
                         {
@@ -235,7 +235,7 @@ namespace CoolStore.Modules.Catalog.Data.Migrations
                             IsDeleted = false,
                             Name = "Oranges - Navel, 72",
                             Price = 1731.0,
-                            Updated = new DateTime(2020, 1, 9, 12, 29, 44, 196, DateTimeKind.Utc).AddTicks(3793)
+                            Updated = new DateTime(2020, 2, 2, 8, 53, 42, 403, DateTimeKind.Utc).AddTicks(7766)
                         },
                         new
                         {
@@ -248,7 +248,7 @@ namespace CoolStore.Modules.Catalog.Data.Migrations
                             IsDeleted = false,
                             Name = "Cheese - Swiss",
                             Price = 975.0,
-                            Updated = new DateTime(2020, 1, 9, 12, 29, 44, 196, DateTimeKind.Utc).AddTicks(3832)
+                            Updated = new DateTime(2020, 2, 2, 8, 53, 42, 403, DateTimeKind.Utc).AddTicks(7856)
                         },
                         new
                         {
@@ -261,7 +261,7 @@ namespace CoolStore.Modules.Catalog.Data.Migrations
                             IsDeleted = false,
                             Name = "Lettuce - Boston Bib",
                             Price = 3453.0,
-                            Updated = new DateTime(2020, 1, 9, 12, 29, 44, 196, DateTimeKind.Utc).AddTicks(3870)
+                            Updated = new DateTime(2020, 2, 2, 8, 53, 42, 403, DateTimeKind.Utc).AddTicks(7900)
                         },
                         new
                         {
@@ -274,7 +274,7 @@ namespace CoolStore.Modules.Catalog.Data.Migrations
                             IsDeleted = false,
                             Name = "Godiva White Chocolate",
                             Price = 2067.0,
-                            Updated = new DateTime(2020, 1, 9, 12, 29, 44, 196, DateTimeKind.Utc).AddTicks(3908)
+                            Updated = new DateTime(2020, 2, 2, 8, 53, 42, 403, DateTimeKind.Utc).AddTicks(7941)
                         },
                         new
                         {
@@ -287,7 +287,7 @@ namespace CoolStore.Modules.Catalog.Data.Migrations
                             IsDeleted = false,
                             Name = "Ecolab - Balanced Fusion",
                             Price = 1769.0,
-                            Updated = new DateTime(2020, 1, 9, 12, 29, 44, 196, DateTimeKind.Utc).AddTicks(3961)
+                            Updated = new DateTime(2020, 2, 2, 8, 53, 42, 403, DateTimeKind.Utc).AddTicks(7980)
                         },
                         new
                         {
@@ -300,7 +300,7 @@ namespace CoolStore.Modules.Catalog.Data.Migrations
                             IsDeleted = false,
                             Name = "Tarragon - Primerba, Paste",
                             Price = 642.0,
-                            Updated = new DateTime(2020, 1, 9, 12, 29, 44, 196, DateTimeKind.Utc).AddTicks(3997)
+                            Updated = new DateTime(2020, 2, 2, 8, 53, 42, 403, DateTimeKind.Utc).AddTicks(8019)
                         },
                         new
                         {
@@ -313,7 +313,7 @@ namespace CoolStore.Modules.Catalog.Data.Migrations
                             IsDeleted = false,
                             Name = "Beef - Tenderloin Tails",
                             Price = 967.0,
-                            Updated = new DateTime(2020, 1, 9, 12, 29, 44, 196, DateTimeKind.Utc).AddTicks(4037)
+                            Updated = new DateTime(2020, 2, 2, 8, 53, 42, 403, DateTimeKind.Utc).AddTicks(8057)
                         },
                         new
                         {
@@ -326,7 +326,7 @@ namespace CoolStore.Modules.Catalog.Data.Migrations
                             IsDeleted = false,
                             Name = "Oil - Olive",
                             Price = 1124.0,
-                            Updated = new DateTime(2020, 1, 9, 12, 29, 44, 196, DateTimeKind.Utc).AddTicks(4102)
+                            Updated = new DateTime(2020, 2, 2, 8, 53, 42, 403, DateTimeKind.Utc).AddTicks(8097)
                         },
                         new
                         {
@@ -339,7 +339,7 @@ namespace CoolStore.Modules.Catalog.Data.Migrations
                             IsDeleted = false,
                             Name = "Crab - Dungeness, Whole, live",
                             Price = 1665.0,
-                            Updated = new DateTime(2020, 1, 9, 12, 29, 44, 196, DateTimeKind.Utc).AddTicks(4276)
+                            Updated = new DateTime(2020, 2, 2, 8, 53, 42, 403, DateTimeKind.Utc).AddTicks(8137)
                         },
                         new
                         {
@@ -352,7 +352,7 @@ namespace CoolStore.Modules.Catalog.Data.Migrations
                             IsDeleted = false,
                             Name = "Pasta - Cappellini, Dry",
                             Price = 3305.0,
-                            Updated = new DateTime(2020, 1, 9, 12, 29, 44, 196, DateTimeKind.Utc).AddTicks(4314)
+                            Updated = new DateTime(2020, 2, 2, 8, 53, 42, 403, DateTimeKind.Utc).AddTicks(8175)
                         },
                         new
                         {
@@ -365,7 +365,7 @@ namespace CoolStore.Modules.Catalog.Data.Migrations
                             IsDeleted = false,
                             Name = "Milk - Skim",
                             Price = 3310.0,
-                            Updated = new DateTime(2020, 1, 9, 12, 29, 44, 196, DateTimeKind.Utc).AddTicks(4351)
+                            Updated = new DateTime(2020, 2, 2, 8, 53, 42, 403, DateTimeKind.Utc).AddTicks(8213)
                         },
                         new
                         {
@@ -378,7 +378,7 @@ namespace CoolStore.Modules.Catalog.Data.Migrations
                             IsDeleted = false,
                             Name = "Beef - Shank",
                             Price = 3196.0,
-                            Updated = new DateTime(2020, 1, 9, 12, 29, 44, 196, DateTimeKind.Utc).AddTicks(4388)
+                            Updated = new DateTime(2020, 2, 2, 8, 53, 42, 403, DateTimeKind.Utc).AddTicks(8281)
                         },
                         new
                         {
@@ -391,7 +391,7 @@ namespace CoolStore.Modules.Catalog.Data.Migrations
                             IsDeleted = false,
                             Name = "Ice Cream Bar - Oreo Cone",
                             Price = 2236.0,
-                            Updated = new DateTime(2020, 1, 9, 12, 29, 44, 196, DateTimeKind.Utc).AddTicks(4425)
+                            Updated = new DateTime(2020, 2, 2, 8, 53, 42, 403, DateTimeKind.Utc).AddTicks(8326)
                         },
                         new
                         {
@@ -404,7 +404,7 @@ namespace CoolStore.Modules.Catalog.Data.Migrations
                             IsDeleted = false,
                             Name = "Mix - Cocktail Ice Cream",
                             Price = 232.0,
-                            Updated = new DateTime(2020, 1, 9, 12, 29, 44, 196, DateTimeKind.Utc).AddTicks(4462)
+                            Updated = new DateTime(2020, 2, 2, 8, 53, 42, 403, DateTimeKind.Utc).AddTicks(8364)
                         },
                         new
                         {
@@ -417,7 +417,7 @@ namespace CoolStore.Modules.Catalog.Data.Migrations
                             IsDeleted = false,
                             Name = "Mushroom - Lg - Cello",
                             Price = 3318.0,
-                            Updated = new DateTime(2020, 1, 9, 12, 29, 44, 196, DateTimeKind.Utc).AddTicks(4498)
+                            Updated = new DateTime(2020, 2, 2, 8, 53, 42, 403, DateTimeKind.Utc).AddTicks(8403)
                         },
                         new
                         {
@@ -430,7 +430,7 @@ namespace CoolStore.Modules.Catalog.Data.Migrations
                             IsDeleted = false,
                             Name = "Lotus Leaves",
                             Price = 1504.0,
-                            Updated = new DateTime(2020, 1, 9, 12, 29, 44, 196, DateTimeKind.Utc).AddTicks(4535)
+                            Updated = new DateTime(2020, 2, 2, 8, 53, 42, 403, DateTimeKind.Utc).AddTicks(8440)
                         },
                         new
                         {
@@ -443,7 +443,7 @@ namespace CoolStore.Modules.Catalog.Data.Migrations
                             IsDeleted = false,
                             Name = "Soup - Campbells Chili",
                             Price = 3294.0,
-                            Updated = new DateTime(2020, 1, 9, 12, 29, 44, 196, DateTimeKind.Utc).AddTicks(4572)
+                            Updated = new DateTime(2020, 2, 2, 8, 53, 42, 403, DateTimeKind.Utc).AddTicks(8479)
                         },
                         new
                         {
@@ -456,7 +456,7 @@ namespace CoolStore.Modules.Catalog.Data.Migrations
                             IsDeleted = false,
                             Name = "Longos - Penne With Pesto",
                             Price = 3639.0,
-                            Updated = new DateTime(2020, 1, 9, 12, 29, 44, 196, DateTimeKind.Utc).AddTicks(4631)
+                            Updated = new DateTime(2020, 2, 2, 8, 53, 42, 403, DateTimeKind.Utc).AddTicks(8517)
                         },
                         new
                         {
@@ -469,7 +469,7 @@ namespace CoolStore.Modules.Catalog.Data.Migrations
                             IsDeleted = false,
                             Name = "Prunes - Pitted",
                             Price = 1191.0,
-                            Updated = new DateTime(2020, 1, 9, 12, 29, 44, 196, DateTimeKind.Utc).AddTicks(4671)
+                            Updated = new DateTime(2020, 2, 2, 8, 53, 42, 403, DateTimeKind.Utc).AddTicks(8557)
                         });
                 });
 

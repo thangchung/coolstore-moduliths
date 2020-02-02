@@ -1,3 +1,104 @@
-{
-
-}
+﻿[
+  {
+    "id": "CC2F509E-5E43-41BD-AD32-FE4B6179DE4D",
+    "name": "en-us",
+    "resources": [
+      {
+        "id": "ECAE244E-C322-4B1B-A7DC-15B8936D809A",
+        "key": "HomePage_Name",
+        "value": "Name"
+      },
+      {
+        "id": "6642A178-070F-49B8-8E38-4DD3AF143CA0",
+        "key": "HomePage_Category",
+        "value": "Category"
+      },
+      {
+        "id": "9688075F-EEAA-42E5-8CA3-9FCBA68213D2",
+        "key": "HomePage_InventoryLocation",
+        "value": "Inventory Location"
+      },
+      {
+        "id": "8BA70D44-6DE0-40BE-A658-CB1CA95FDCAB",
+        "key": "HomePage_Price",
+        "value": "Price"
+      },
+      {
+        "id": "0BB8CD34-48AC-4F9F-8817-B1E7115ADF0D",
+        "key": "HomePage_Image",
+        "value": "Image"
+      },
+      {
+        "id": "12E5CE71-67C6-4254-9749-27218BB67E04",
+        "key": "HomePage_Description",
+        "value": "Description"
+      },
+      {
+        "id": "626FF0FB-031C-4467-8883-3E01185256D2",
+        "key": "InventoryPage_Location",
+        "value": "Location"
+      },
+      {
+        "id": "B40D2568-6582-46F8-A0C2-528D3A2E9FF2",
+        "key": "InventoryPage_Website",
+        "value": "Website"
+      },
+      {
+        "id": "977DDE1C-A4CC-4D37-AF91-12F9FEC2BE44",
+        "key": "InventoryPage_Description",
+        "value": "Description"
+      }
+    ]
+  },
+  {
+    "id": "7F6C3B00-118B-4803-A20C-F541895F2A2F",
+    "name": "vi-vn",
+    "resources": [
+      {
+        "id": "94814EE3-434D-45AB-8CD6-C4CA2A83029E",
+        "key": "HomePage_Name",
+        "value": "Tên"
+      },
+      {
+        "id": "602CEED9-59AE-4CDE-980B-04A90B9CA38D",
+        "key": "HomePage_Category",
+        "value": "Danh mục"
+      },
+      {
+        "id": "87E0579D-F716-4A40-BFBE-393B7252CDD2",
+        "key": "HomePage_InventoryLocation",
+        "value": "Vị trí kho"
+      },
+      {
+        "id": "07B34D06-2409-460F-877F-41045F30CABF",
+        "key": "HomePage_Price",
+        "value": "Giá"
+      },
+      {
+        "id": "9D7E67D2-E536-4066-9F65-F6CDFD4D0A13",
+        "key": "HomePage_Image",
+        "value": "Hình ảnh"
+      },
+      {
+        "id": "90907470-B780-4878-A230-61A3692C996A",
+        "key": "HomePage_Description",
+        "value": "Mô tả"
+      },
+      {
+        "id": "6911CC06-DF3F-454B-97E2-E59CE0351D61",
+        "key": "InventoryPage_Location",
+        "value": "Vị trí"
+      },
+      {
+        "id": "D0753869-4579-452C-A921-91957E5027AA",
+        "key": "InventoryPage_Website",
+        "value": "Website"
+      },
+      {
+        "id": "40BA4FB4-2B47-49DB-8FF5-5017097914DB",
+        "key": "InventoryPage_Description",
+        "value": "Mô tả"
+      }
+    ]
+  }
+]

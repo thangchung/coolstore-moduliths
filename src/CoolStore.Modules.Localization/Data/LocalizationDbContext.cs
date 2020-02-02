@@ -6,7 +6,7 @@ using System;
 
 namespace CoolStore.Modules.Localization.Data
 {
-    public class LocalizationDbContext : DbContext
+    public sealed class LocalizationDbContext : DbContext
     {
         public LocalizationDbContext(DbContextOptions<LocalizationDbContext> options)
            : base(options)
@@ -30,7 +30,7 @@ namespace CoolStore.Modules.Localization.Data
             var connString = ConfigurationHelper.GetConfiguration(AppContext.BaseDirectory)?.GetConnectionString("MainDb");
             var optionsBuilder = new DbContextOptionsBuilder<LocalizationDbContext>()
                 .UseSqlServer(
-                    connString,
+                    connString ?? throw new InvalidOperationException(),
                     sqlOptions =>
                     {
                         sqlOptions.MigrationsAssembly(GetType().Assembly.FullName);

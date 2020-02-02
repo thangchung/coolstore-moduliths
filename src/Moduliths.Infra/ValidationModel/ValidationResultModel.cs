@@ -16,9 +16,8 @@ namespace Moduliths.Infra.ValidationModel
         public ValidationResultModel(ValidationResult validationResult = null)
         {
             Errors = validationResult.Errors
-                    .Select(error => new ValidationError(error.PropertyName, error.ErrorMessage))
-                    .ToList()
-                ?? new List<ValidationError>();
+                .Select(error => new ValidationError(error.PropertyName, error.ErrorMessage))
+                .ToList();
         }
 
         public override string ToString()

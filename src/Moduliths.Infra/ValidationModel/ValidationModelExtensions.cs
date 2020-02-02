@@ -9,7 +9,7 @@ namespace Moduliths.Infra.ValidationModel
     /// </summary>
     public static class ValidationModelExtensions
     {
-        public static ValidationResultModel ToValidationResultModel(this ValidationResult validationResult)
+        private static ValidationResultModel ToValidationResultModel(this ValidationResult validationResult)
         {
             return new ValidationResultModel(validationResult);
         }

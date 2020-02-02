@@ -1,11 +1,11 @@
-﻿@page "/"
+﻿@page "/product"
 
 @using CoolStore.UI.Blazor.Services
 @using CoolStore.UI.Blazor.I18nText
 @inject CoolStoreService CoolStoreService
-@inject Toolbelt.Blazor.I18nText.I18nText I18nText
+@inject Toolbelt.Blazor.I18nText.I18nText I18NText
 
-@if (products == null)
+@if (_products == null)
 {
     <p><em>Loading products...</em></p>
 }
@@ -14,16 +14,16 @@ else
     <table class="table">
         <thead>
             <tr>
-                <th>@Text.HomePage_Name</th>
-                <th>@Text.HomePage_Category</th>
-                <th>@Text.HomePage_InventoryLocation</th>
-                <th>@Text.HomePage_Price</th>
-                <th>@Text.HomePage_Image</th>
-                <th>@Text.HomePage_Description</th>
+                <th>@_text.HomePage_Name</th>
+                <th>@_text.HomePage_Category</th>
+                <th>@_text.HomePage_InventoryLocation</th>
+                <th>@_text.HomePage_Price</th>
+                <th>@_text.HomePage_Image</th>
+                <th>@_text.HomePage_Description</th>
             </tr>
         </thead>
         <tbody>
-            @foreach (var product in products)
+            @foreach (var product in _products)
             {
                 <tr>
                     <td>@product.Name</td>
@@ -39,11 +39,11 @@ else
 }
 
 @code {
-    private MyText Text = new MyText();
-    private List<ICatalogProductDto> products;
+    private MyText _text = new MyText();
+    private List<ICatalogProductDto> _products;
     protected override async Task OnInitializedAsync()
     {
-        Text = await I18nText.GetTextTableAsync<MyText>(this);
-        products = await CoolStoreService.GetProducts();
+        _text = await I18NText.GetTextTableAsync<MyText>(this);
+        _products = await CoolStoreService.GetProducts();
     }
 }

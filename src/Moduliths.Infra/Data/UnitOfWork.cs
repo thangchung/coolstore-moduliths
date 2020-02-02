@@ -12,10 +12,11 @@ namespace Moduliths.Infra.Data
     {
         private readonly IEnumerable<DbContext> _dbContexts;
         private readonly IMediator _mediator;
+
         public UnitOfWork(IEnumerable<DbContext> dbContexts, IMediator mediator)
         {
-            _dbContexts = dbContexts;
-            _mediator = mediator;
+            _dbContexts = dbContexts ?? throw CoreException.NullArgument(nameof(dbContexts));
+            _mediator = mediator ?? throw CoreException.NullArgument(nameof(mediator));
         }
 
         public async Task<int> CommitAsync(CancellationToken cancellationToken = default)
@@ -38,8 +39,7 @@ namespace Moduliths.Infra.Data
         {
             foreach (var dbContext in _dbContexts)
             {
-                if (dbContext != null)
-                    dbContext.Dispose();
+                dbContext?.Dispose();
             }
             GC.SuppressFinalize(this);
         }

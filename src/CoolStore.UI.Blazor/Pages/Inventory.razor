@@ -3,9 +3,9 @@
 @using CoolStore.UI.Blazor.Services
 @using CoolStore.UI.Blazor.I18nText
 @inject CoolStoreService CoolStoreService
-@inject Toolbelt.Blazor.I18nText.I18nText I18nText
+@inject Toolbelt.Blazor.I18nText.I18nText I18NText
 
-@if (inventories == null)
+@if (_inventories == null)
 {
     <p><em>Loading inventory...</em></p>
 }
@@ -14,13 +14,13 @@ else
     <table class="table">
         <thead>
             <tr>
-                <th>@Text.InventoryPage_Location</th>
-                <th>@Text.InventoryPage_Website</th>
-                <th>@Text.InventoryPage_Description</th>
+                <th>@_text.InventoryPage_Location</th>
+                <th>@_text.InventoryPage_Website</th>
+                <th>@_text.InventoryPage_Description</th>
             </tr>
         </thead>
         <tbody>
-            @foreach (var inventory in inventories)
+            @foreach (var inventory in _inventories)
             {
                 <tr>
                     <td>@inventory.Location</td>
@@ -33,11 +33,11 @@ else
 }
 
 @code {
-    private MyText Text = new MyText();
-    private List<IInventoryDto> inventories;
+    private MyText _text = new MyText();
+    private List<IInventoryDto> _inventories;
     protected override async Task OnInitializedAsync()
     {
-        Text = await I18nText.GetTextTableAsync<MyText>(this);
-        inventories = await CoolStoreService.GetInventories();
+        _text = await I18NText.GetTextTableAsync<MyText>(this);
+        _inventories = await CoolStoreService.GetInventories();
     }
 }
