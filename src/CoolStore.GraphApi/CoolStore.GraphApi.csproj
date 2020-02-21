@@ -6,8 +6,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="FeatherHttp" Version="0.1.34-alpha.g005ace427a" />
-    <PackageReference Include="Grpc.AspNetCore" Version="2.26.0" />
+    <PackageReference Include="FeatherHttp" Version="0.1.59-alpha.g2c306f941a" />
+    <PackageReference Include="Grpc.AspNetCore" Version="2.27.0" />
   </ItemGroup>
 
   <ItemGroup>
